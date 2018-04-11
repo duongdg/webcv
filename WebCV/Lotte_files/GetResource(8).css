@@ -1,0 +1,101 @@
+#backgroundPopup{
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000000;
+	border:1px solid #cecece;
+	z-index:888888;
+}
+#popupContact{
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:480px;
+	width:640px;
+	z-index:2;
+	padding:7px;
+	font-size:13px;
+	z-index:999999;
+}
+.about-home .img
+{
+	z-index:-1;
+}
+	#popupContact img
+	{
+		z-index:999999;
+        opacity: 1;
+	}
+        #popupContact img:hover {
+        opacity: 1 !important;
+        }
+#popupContact div{ text-align:right;}
+#popupContact h1{
+	text-align:left;
+	color:#096;
+	font-size:18px;
+	font-weight:700;
+	border-bottom:1px dotted #CCC;
+	padding-bottom:2px;
+	margin-bottom:20px;
+}
+#popupContactClose{
+	font-size:12px;
+	line-height:16px;
+	right:6px;
+	top:4px;
+	color:#ffffff;
+	font-weight:700;
+}
+#button{
+	text-align:center;
+	margin:100px;
+}
+
+#popupContact1{
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:480px;
+	width:640px;
+	z-index:2;
+	padding:7px;
+	font-size:13px;
+	z-index:999999;
+}
+.about-home .img
+{
+	z-index:-1;
+}
+	#popupContact1 img
+	{
+		z-index:999999;
+        opacity: 1;
+	}
+        #popupContact1 img:hover {
+        opacity: 1 !important;
+        }
+#popupContact1 div{ text-align:right;}
+#popupContact1 h1{
+	text-align:left;
+	color:#096;
+	font-size:18px;
+	font-weight:700;
+	border-bottom:1px dotted #CCC;
+	padding-bottom:2px;
+	margin-bottom:20px;
+}
+#popupContactClose1{
+	font-size:12px;
+	line-height:16px;
+	right:6px;
+	top:4px;
+	color:#ffffff;
+	font-weight:700;
+}
+
+/* Minification failed (line 62): An underscore is not a valid CSS1 or CSS2 identifier character */

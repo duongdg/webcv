@@ -1,0 +1,110 @@
+
+#mcs3_container{position:absolute; right:0; margin:0; width:130px; height:98%; top:0px;}
+#mcs3_container .customScrollBox{position:absolute; height:100%; overflow:hidden;  margin-left:-20px; padding-left:15px}
+#mcs3_container .customScrollBox .container{position:relative; width:240px; top:0; float:left;}
+#mcs3_container .customScrollBox .content{clear:both;}
+#mcs3_container .customScrollBox img{border:3px solid #31231E; margin:0 0 0 15px;}
+#mcs3_container .dragger_container{position:relative; width:0px; height:33%; float:left; right:247px; top:240px;cursor:pointer;}
+#mcs3_container .dragger{position:absolute; width:10px; height:60px; background:url('https://lottecinemavn.com/App_Themes/lotte/img/icon_scroll.png') no-repeat; margin-left:-5px; overflow:hidden; cursor:pointer; }
+#mcs3_container .dragger_pressed{position:absolute; width:10px; height:60px; background:url('https://lottecinemavn.com/App_Themes/lotte/img/icon_scroll.png') no-repeat; margin-left:-5px; overflow:hidden; cursor:pointer; }
+
+
+/**/
+
+.dn_flmvds{
+	background:url('https://lottecinemavn.com/App_Themes/lotte/img/bg_lmv.png') no-repeat;
+	width:722px;
+	height:232px;
+	padding-top:10px;
+	margin-top:20px;
+}
+.dn_lmvds{
+	width:700px;
+	margin:0px auto;
+	background:#000 url('https://lottecinemavn.com/App_Themes/lotte/img/bg_lmv2.png') repeat-x ;
+	height:215px;
+}
+.dn_lmvdstt{
+	height:30px;
+	line-height:30px;
+	display:block;
+	text-align:left;
+	margin-bottom:10px;
+}
+
+.dn_lmvdstt span{
+	font-size:18px;
+	color:#ffe400;
+	text-transform:uppercase;
+	font-weight:bold;
+	margin-left:20px;
+}
+
+.dn_lmvdsimg{
+	display:block;
+	float:left;
+	margin:0px 10px 0px 5px;
+	
+}
+.dn_lmvdsimg a{
+	text-decoration:none;
+}
+.dn_lmvdsimg img{
+	border:1px solid #505050;
+}
+.dn_lmvdsimg:hover
+{
+    opacity:0.7;
+    filter:alpha(opacity=70);
+}
+
+#mcs5_container{ margin:0;height:185px; overflow:hidden;}
+#mcs5_container .customScrollBox{position:relative; width:680px;margin-left:10px;}
+#mcs5_container .customScrollBox .horWrapper{position:relative; left:0;}
+#mcs5_container .customScrollBox .container{position:relative; left:0; display:inline-block; *display:inline;}
+#mcs5_container .customScrollBox .content{clear:both;}
+#mcs5_container .customScrollBox .content p{padding:5px; margin:0 5px;}
+#mcs5_container .customScrollBox .content p img{margin-right:5px;}
+#mcs5_container .dragger_container{position:relative; height:2px; width:644px; margin:10px; border-top:2px solid #212121;}
+#mcs5_container .dragger{position:absolute; width:235px; height:9px; background:#111 url('https://lottecinemavn.com/App_Themes/lotte/img/scroll.png') no-repeat; margin-top:-5px; }
+#mcs5_container .dragger_pressed{position:absolute; width:235px; height:9px; background:#111 url('https://lottecinemavn.com/App_Themes/lotte/img/scroll.png') no-repeat; margin-top:-5px;}
+#mcs5_container .scrollUpBtn,#mcs5_container .scrollDownBtn{position:absolute; bottom:-2px; display:block; 
+text-decoration:none;  z-index:999; width:16px; height:10px;}
+#mcs5_container .scrollDownBtn{right:10px;background:url('https://lottecinemavn.com/App_Themes/lotte/img/mcs_btnnext.png') no-repeat;}
+#mcs5_container .scrollUpBtn{left:10px; background:url('https://lottecinemavn.com/App_Themes/lotte/img/mcs_btnprev.png') no-repeat;}
+#mcs5_container .scrollUpBtn:hover,#mcs5_container .scrollDownBtn:hover{color:#fff;}
+
+ul.dn_lscroll{
+	list-style:none;
+	height:155px;
+	margin:0;
+	padding:0px;
+}
+
+ul.dn_lscroll li{
+	width:100px;
+	height:155px;
+	text-align:center;
+	float:left;
+	margin:0px 18px 0px 0px;
+}
+ul.dn_lscroll li a{
+	text-decoration:none;
+}
+ul.dn_lscroll li img{
+	border:1px solid #4f4f4f;display:block;
+	margin:0 auto 5px auto;
+	
+}
+ul.dn_lscroll li img:hover
+{
+    opacity:0.7;
+    filter:alpha(opacity=70);
+}
+ul.dn_lscroll li span{
+	color:#fff;
+	font-size:11px;
+	
+}
+
+/* Minification failed (line 104): An underscore is not a valid CSS1 or CSS2 identifier character */
