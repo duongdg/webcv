@@ -11,6 +11,7 @@ namespace WebCV.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            //test
             return View();
         }
     }
