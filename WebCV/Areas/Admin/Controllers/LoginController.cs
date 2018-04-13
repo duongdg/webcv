@@ -31,7 +31,7 @@ namespace WebCV.Areas.Admin.Controllers
                     var admin = dao.GetByID(model.Email);
                     var adminSession = new AdminLogin();
                     adminSession.Email = admin.Email;
-                    adminSession.Id_Admin = admin.Id_Admin;
+                    adminSession.Id_Admin = admin.Id_User;
                     Session.Add(CommonConstant.ADMIN_SESION, adminSession);
                     return RedirectToAction("Index", "Home");
                 }

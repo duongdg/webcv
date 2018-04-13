@@ -10,10 +10,10 @@ namespace Model
 {
     public class LanguageModel
     {
-        private DBconnectWebSiteCV context = null;
+        private dataCV context = null;
         public LanguageModel()
         {
-            context = new DBconnectWebSiteCV();
+            context = new dataCV();
         }
         public List<Language> ListAll()
         {

@@ -51,18 +51,18 @@
   <ItemGroup>
     <Compile Include="AdminAccountModel.cs" />
     <Compile Include="DAO\AdminDAO.cs" />
-    <Compile Include="Framework\Admin.cs" />
-    <Compile Include="Framework\DBconnectWebSiteCV.cs" />
+    <Compile Include="Framework\dataCV.cs" />
     <Compile Include="Framework\Education.cs" />
     <Compile Include="Framework\Experience.cs" />
     <Compile Include="Framework\Follow.cs" />
     <Compile Include="Framework\Language.cs" />
+    <Compile Include="Framework\Profile.cs" />
     <Compile Include="Framework\Project.cs" />
     <Compile Include="Framework\Role.cs" />
     <Compile Include="Framework\Skill.cs" />
     <Compile Include="Framework\Specialized.cs" />
     <Compile Include="Framework\sysdiagram.cs" />
-    <Compile Include="Framework\Userss.cs" />
+    <Compile Include="Framework\User.cs" />
     <Compile Include="LanguageModel.cs" />
     <Compile Include="Properties\AdminModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

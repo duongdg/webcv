@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -43,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -264,6 +273,38 @@
     <Content Include="Lotte_files\slick.js" />
     <Content Include="Lotte_files\wcslog.js" />
     <Content Include="Lotte_files\WebResource.css" />
+    <Content Include="Areas\Admin\Views\Education\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Experiences\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Experiences\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Experiences\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Experiences\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Experiences\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Roles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Roles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Roles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Roles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Roles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Profiles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Profiles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Profiles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Profiles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Profiles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Specializeds\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Specializeds\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Specializeds\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Specializeds\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Specializeds\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Skills\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Skills\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Skills\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Skills\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Skills\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Project\index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -277,9 +318,17 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Code\SessionHelper.cs" />
     <Compile Include="Areas\Admin\Code\UserSession.cs" />
+    <Compile Include="Areas\Admin\Controllers\EducationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ExperiencesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LanguageController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProfilesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProjectController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SkillsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SpecializedsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\AdminLogin.cs" />
     <Compile Include="Common\CommonConstant.cs" />
