@@ -9,25 +9,25 @@ namespace Model.DAO
 {
     public class AdminDAO
     {
-        DBconnectWebSiteCV db = null;
+        dataCV db = null;
         public AdminDAO()
         {
-            db = new DBconnectWebSiteCV();
+            db = new dataCV();
 
         }
-        public long Insert(Admin entity)
+        public long Insert(User entity)
         {
-            db.Admins.Add(entity);
+            db.Users.Add(entity);
             db.SaveChanges();
-            return entity.Id_Admin;
+            return entity.Id_User;
         }
-        public Admin GetByID(string email)
+        public User GetByID(string email)
         {
-            return db.Admins.SingleOrDefault(x=>x.Email==email);
+            return db.Users.SingleOrDefault(x=>x.Email==email);
         }
         public int Login(string email,string password)
         {
-            var result = db.Admins.SingleOrDefault(x => x.Email == email && x.PassWord == password);
+            var result = db.Users.SingleOrDefault(x => x.Email == email && x.PassWord == password);
             if(result==null)
             {
                 return 0;

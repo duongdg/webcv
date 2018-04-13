@@ -12,7 +12,7 @@ namespace Model.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Follow()
         {
-            Usersses = new HashSet<Userss>();
+            Profiles = new HashSet<Profile>();
         }
 
         [Key]
@@ -23,6 +23,6 @@ namespace Model.Framework
         public int Followed_id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Userss> Usersses { get; set; }
+        public virtual ICollection<Profile> Profiles { get; set; }
     }
 }

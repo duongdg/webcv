@@ -6,17 +6,14 @@ namespace Model.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Admin")]
-    public partial class Admin
+    public partial class User
     {
         [Key]
-        public int Id_Admin { get; set; }
+        public int Id_User { get; set; }
+
+        public int Id_Profile { get; set; }
 
         public int Id_Role { get; set; }
-
-        [Required]
-        [StringLength(100)]
-        public string UserName { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -26,16 +23,9 @@ namespace Model.Framework
         [StringLength(100)]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(11)]
-        public string Phone { get; set; }
-
-        [StringLength(250)]
-        public string Address { get; set; }
-
-        public int? Sex { get; set; }
-
         public bool Status { get; set; }
+
+        public virtual Profile Profile { get; set; }
 
         public virtual Role Role { get; set; }
     }

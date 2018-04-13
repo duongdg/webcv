@@ -10,10 +10,10 @@ namespace Model
 {
     public class AdminAccountModel
     {
-        private DBconnectWebSiteCV context = null;
+        private dataCV context = null;
         public AdminAccountModel()
         {
-            context = new DBconnectWebSiteCV();
+            context = new dataCV();
         }
         public bool Login(string email, string password)
         {
