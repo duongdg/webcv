@@ -6,7 +6,8 @@
 
 <div class="card mb-3">
     <div class="card-header">
-        <i class="fa fa-table"></i> Data Table Language
+        <i class="fa fa-table"></i> Languages
+        <button type="button" class="btn btn-info btn_Add">Add</button>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -16,6 +17,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Status</th>
+                        <th class="W_action">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +27,10 @@
                             <td>@item.Id_Language</td>
                             <td>@item.LanguageName</td>
                             <td>@(item.Status?"Actived":"Block")</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">Update</button>
+                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
                         </tr>
                     }
                 </tbody>

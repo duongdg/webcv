@@ -6,23 +6,21 @@ namespace Model.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Userss")]
-    public partial class Userss
+    [Table("Profile")]
+    public partial class Profile
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Profile()
+        {
+            Users = new HashSet<User>();
+        }
+
         [Key]
-        public int Id_User { get; set; }
+        public int Id_Profile { get; set; }
 
         [Required]
         [StringLength(100)]
         public string FullName { get; set; }
-
-        [Required]
-        [StringLength(100)]
-        public string PassWord { get; set; }
-
-        [Required]
-        [StringLength(100)]
-        public string Email { get; set; }
 
         [Required]
         [StringLength(11)]
@@ -72,6 +70,9 @@ namespace Model.Framework
         public virtual Follow Follow { get; set; }
 
         public virtual Language Language { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
 
         public virtual Project Project { get; set; }
 
