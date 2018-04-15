@@ -1,0 +1,163 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Professional CV " />
+    <!-- menu -->
+    <link href="~/Content/Profile/css/cm-overlay.css" rel="stylesheet" />
+    <!-- //menu -->
+    <link href="~/Content/Profile/css/jquery.fatNav.css" rel="stylesheet" type="text/css">
+    <!--FlexSlider-->
+    <link rel="stylesheet" href="~/Content/Profile/css/flexslider.css" type="text/css" media="screen" />
+    <!--//FlexSlider-->
+    <link rel="stylesheet" href="~/Content/Profile/css/lightbox.css"><!-- For-gallery-CSS -->
+    <!-- custom css theme files -->
+    <link rel="stylesheet" href="~/Content/Profile/css/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/Profile/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/Profile/css/style.css" type="text/css" media="all">
+    <!-- //custom css theme files -->
+</head>
+<!-- Body -->
+<body id="home">
+    <!-- banner -->
+    <nav class="w3-navbar">
+        <div class="container">
+            <div class="nav-top">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="#home" class="scroll">
+                        Professional <span>CV</span>
+                    </a>
+                </div>
+                <!-- Logo -->
+                <div class="right">
+                    <div class="w3-socials">
+                        <ul>
+                            <li>
+                                <a href="#"><span class="fa fa-facebook"></span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="fa fa-vk"></span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="fa fa-pinterest-p"></span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="fa fa-twitter"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </nav>
+    @{Html.RenderAction("Slide", "Profile");}
+    <!-- //banner -->
+    <!--about-->
+    @RenderPage("About.cshtml", "ProfileController")
+    <!-- /services -->
+    @RenderPage("Service.cshtml", "ProfileController")
+    <!-- //services -->
+    <!--skills -->
+    @{Html.RenderAction("Skill", "Profile");}
+    <!-- //skills -->
+    <!--gallery-->
+    
+    <!--//gallery-->
+    <!-- stats -->
+    @RenderPage("Project.cshtml", "ProfileController")
+    <!-- //stats -->
+    <!-- My experience -->
+    @RenderPage("Experience.cshtml", "ProfileController")
+    <!-- //My experience -->
+    <!-- comments -->
+    @RenderPage("Contact.cshtml", "ProfileController")
+    <!-- /comments -->
+    <div class="w3l_footer">
+        <div class="container">
+            <h3>Cảm ơn đã thăm website của tôi</h3>
+            <div class="connect-social">
+                <ul>
+                    <li class="connect">Kết nối với tôi : </li>
+                    <li><a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="social-button google"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="social-button linkedin"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <p class="agileits_w3ls_copyright">© 2018 EpuIt. Chúng tôi luôn bên bạn | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
+            <div class="arrow-container animated fadeInDown">
+                <a href="#home" class="arrow-2 scroll">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+                <div class="arrow-1 animated hinge infinite zoomIn"></div>
+            </div>
+        </div>
+    </div>
+    <!--//footer -->
+    <!-- Default-JavaScript-File -->
+    <script src="~/Content/Profile/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Content/Profile/js/bootstrap.min.js"></script>
+    <!-- //Default-JavaScript-File -->
+    <!-- gauge-meter -->
+    <script src="~/Content/js/jquery.gauge.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#gauge1").gauge(90, { color: "#ff4f81", unit: " %", type: "halfcircle" });
+            $("#gauge2").gauge(70, { color: "#2dde98", unit: " %", type: "halfcircle" });
+            $("#gauge3").gauge(75, { color: "#00aeff", unit: " %", type: "halfcircle" });
+            $("#gauge4").gauge(40, { color: "#ffb900", unit: " %", type: "halfcircle" });
+        });
+    </script>
+    <!-- //gauge-meter -->
+    <!--menu script-->
+    <script type="text/javascript" src="~/Content/Profile/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/Content/Profile/js/jquery.fatNav.js"></script>
+    <script>
+        (function () {
+
+            $.fatNav();
+
+        }());
+    </script>
+
+    <!--Start-slider-script-->
+    <script defer src="~/Content/Profile/js/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!--End-slider-script-->
+    <!-- smooth scrolling -->
+    <script src="~/Content/js/SmoothScroll.min.js"></script>
+    <!-- smooth scrolling -->
+    <!-- scrolling script -->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- //scrolling script -->
+
+
+</body>
+<!-- //Body -->
+</html>

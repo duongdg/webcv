@@ -1,0 +1,39 @@
+﻿@model List<Model.Framework.Skill>
+<div class="skills-agileinfo" id="skills">
+    <div class="container">
+        <h3 class="text-center">Kỹ năng</h3>
+        <div class="modal-spa">
+            <div class="skills">
+                <div class="col-md-6 bar-grids bargrids-left">
+                    <h4> Technical Skills </h4>
+                    <p>
+                        Vestibulum facilisis nisi sed libero consectetur, nec eleifend augue feugiat.
+                        Vivamus dictum quam id diam dapibus, a vehicula orci luctus.
+                    </p>
+                    <h6>web design  <span> 80% </span></h6>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" style="width: 80%">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 bar-grids  w3-agile">
+                    <h4> My Hobbies </h4>
+                    <p>
+                        Vestibulum facilisis nisi sed libero consectetur, nec eleifend augue feugiat.
+                        Vivamus dictum quam id diam dapibus, a vehicula orci luctus.
+                    </p>
+                    @foreach (var item in Model)
+                    {
+                    <div class="col-md-4 hobbies-grid1 grid1">
+                        <span class="fa fa-codepen"></span>
+                        <h5>@item.SkillName</h5>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    }
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>

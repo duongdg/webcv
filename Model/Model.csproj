@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="AdminAccountModel.cs" />
     <Compile Include="DAO\AdminDAO.cs" />
+    <Compile Include="DAO\ProfileDAO.cs" />
+    <Compile Include="DAO\SkillDAO.cs" />
     <Compile Include="Framework\dataCV.cs" />
     <Compile Include="Framework\Education.cs" />
     <Compile Include="Framework\Experience.cs" />
