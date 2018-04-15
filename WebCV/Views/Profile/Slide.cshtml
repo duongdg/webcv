@@ -1,0 +1,59 @@
+﻿@model List<Model.Framework.Profile>
+<div class="w3l-banner">
+    <div class="wthree-dot">
+
+        <!-- nav -->
+        <div class="w3layouts-nav-right">
+            <div class="fat-nav">
+                <div class="fat-nav__wrapper">
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="#about" class="scroll">Về tôi</a></li>
+                        <li><a href="#services" class="scroll">Mục tiêu nghề nghiệp</a></li>
+                        <li><a href="#skills" class="scroll">Kỹ năng</a></li>
+                        <li><a href="#gallery" class="scroll">Dự án</a></li>
+                        <li><a href="#stats" class="scroll">Thống kê</a></li>
+                        <li><a href="#experience" class="scroll">Kinh nghiệm làm việc</a></li>
+                        <li><a href="#contact" class="scroll">Thông tin bản thân</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- //nav -->
+        <!-- //Header -->
+        <div class="container">
+            <div class="flexslider-info">
+                <section class="slider col-md-6">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            @foreach (var item in Model)
+                            {
+                            <li>
+                                <div class="w3l-info">
+                                    <h1>Tôi là <span>@item.FullName</span></h1>
+                                    <p>@item.Adress - @item.Phone</p>
+                                    <ul>
+                                        <li><a href="#" class="w3ls_more">Thuê tôi</a></li>
+                                        <li><a href="#contact" class="scroll w3l_contact">Thông tin về tôi</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="w3l-info">
+                                    <h1>Mục tiêu <span>@item.TargetJob</span></h1>
+                                    <p>@item.Descreption</p>
+                                    <ul>
+                                        <li><a href="#" class="w3ls_more">Thuê tôi</a></li>
+                                        <li><a href="#contact" class="scroll w3l_contact">Thông tin về tôi</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </section>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

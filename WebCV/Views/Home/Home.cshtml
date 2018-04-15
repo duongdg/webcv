@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--start-main-->
+<div class="header-bottom">
+    <div class="container">
+        <div class="logo wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+            <h1><a href="index.html">STYLE BLOG</a></h1>
+            <p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
+        </div>
+    </div>
+</div>
+<!-- banner -->
+<div class="banner">
+    <div class="container">
+        <h2>Contrary to popular belief, Lorem Ipsum simply</h2>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        <a href="singlepage.html">READ MORE</a>
+    </div>
+</div>
+@RenderPage("_ContentTop.cshtml", "HomeController")
+<!-- technology-left -->
+<div class="technology">
+    <div class="container">
+        <div class="col-md-9 technology-left">
+            <div class="tech-no">
+                <!-- technology-top -->
+                @RenderPage("_DetailProfile.cshtml", "HomeController")
+                @RenderPage("_Involve.cshtml", "HomeController")
+            </div>
+        </div>
+        @RenderPage("_Popular.cshtml", "HomeController")
+    </div>
+        </div>

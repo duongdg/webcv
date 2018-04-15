@@ -9,9 +9,33 @@ namespace WebCV.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Home()
         {
-            //test
+            return View();
+        }
+
+        public ActionResult DetailProfile()
+        {
+            return View();
+        }
+        public ActionResult ContentTop()
+        {
+            return View();
+        }
+        public ActionResult Popular()
+        {
+            return View();
+        }
+        public ActionResult Involve()
+        {
+            return View();
+        }
+        public ActionResult About()
+        {
+            return View();
+        }
+        public ActionResult ResponProfile()
+        {
             return View();
         }
     }
