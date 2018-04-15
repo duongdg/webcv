@@ -1,0 +1,141 @@
+﻿@model IEnumerable<Model.Framework.Profile>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Profiles
+        <button type="button" class="btn btn-info btn_Add">Add</button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Education.EducationName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Experience.ExperienceName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Follow.Id_Follow)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Language.LanguageName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Project.ProjectName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Skill.SkillName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Specialized.SpecializedName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Adress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateofBirth)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Sex)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Hobbies)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descreption)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TargetJob)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Is_View)
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                    t
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Education.EducationName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Experience.ExperienceName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Follow.Id_Follow)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Language.LanguageName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Project.ProjectName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Skill.SkillName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Specialized.SpecializedName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Adress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateofBirth)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sex)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Hobbies)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descreption)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TargetJob)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Is_View)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id_Profile }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id_Profile }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id_Profile })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
