@@ -6,6 +6,7 @@ namespace Model.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("User")]
     public partial class User
     {
         [Key]

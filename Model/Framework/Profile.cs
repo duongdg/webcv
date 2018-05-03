@@ -63,9 +63,9 @@ namespace Model.Framework
 
         public bool Is_View { get; set; }
 
-        public virtual Education Education { get; set; }
-
         public virtual Experience Experience { get; set; }
+
+        public virtual Education Education { get; set; }
 
         public virtual Follow Follow { get; set; }
 
@@ -79,5 +79,8 @@ namespace Model.Framework
         public virtual Skill Skill { get; set; }
 
         public virtual Specialized Specialized { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }
