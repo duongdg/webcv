@@ -71,6 +71,9 @@ namespace Model.Framework
 
         public virtual Language Language { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
+
         public virtual Project Project { get; set; }
 
         public virtual Skill Skill { get; set; }
