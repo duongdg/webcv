@@ -12,7 +12,7 @@ namespace Model.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Language()
         {
-            Profiles = new HashSet<Profile>();
+            Profile_Language = new HashSet<Profile_Language>();
         }
 
         [Key]
@@ -25,6 +25,6 @@ namespace Model.Framework
         public bool Status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Profile> Profiles { get; set; }
+        public virtual ICollection<Profile_Language> Profile_Language { get; set; }
     }
 }

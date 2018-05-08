@@ -17,7 +17,7 @@ namespace WebCV.Areas.Admin.Controllers
         // GET: Admin/Profiles
         public ActionResult Index()
         {
-            var profiles = db.Profiles.Include(p => p.Education).Include(p => p.Experience).Include(p => p.Follow).Include(p => p.Language).Include(p => p.Project).Include(p => p.Skill).Include(p => p.Specialized);
+            var profiles = db.Profiles.Include(p => p.Education).Include(p => p.Follow).Include(p => p.Specialized);
             return View(profiles.ToList());
         }
 
@@ -64,11 +64,7 @@ namespace WebCV.Areas.Admin.Controllers
             }
 
             ViewBag.Id_Education = new SelectList(db.Educations, "Id_Education", "EducationName", profile.Id_Education);
-            ViewBag.Id_Experience = new SelectList(db.Experiences, "Id_Experience", "ExperienceName", profile.Id_Experience);
             ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
-            ViewBag.Id_Language = new SelectList(db.Languages, "Id_Language", "LanguageName", profile.Id_Language);
-            ViewBag.Id_Project = new SelectList(db.Projects, "Id_Project", "ProjectName", profile.Id_Project);
-            ViewBag.Id_Skill = new SelectList(db.Skills, "Id_Skill", "SkillName", profile.Id_Skill);
             ViewBag.Id_Specialized = new SelectList(db.Specializeds, "id_Specialized", "SpecializedName", profile.Id_Specialized);
             return View(profile);
         }
@@ -86,11 +82,7 @@ namespace WebCV.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.Id_Education = new SelectList(db.Educations, "Id_Education", "EducationName", profile.Id_Education);
-            ViewBag.Id_Experience = new SelectList(db.Experiences, "Id_Experience", "ExperienceName", profile.Id_Experience);
             ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
-            ViewBag.Id_Language = new SelectList(db.Languages, "Id_Language", "LanguageName", profile.Id_Language);
-            ViewBag.Id_Project = new SelectList(db.Projects, "Id_Project", "ProjectName", profile.Id_Project);
-            ViewBag.Id_Skill = new SelectList(db.Skills, "Id_Skill", "SkillName", profile.Id_Skill);
             ViewBag.Id_Specialized = new SelectList(db.Specializeds, "id_Specialized", "SpecializedName", profile.Id_Specialized);
             return View(profile);
         }
@@ -109,11 +101,7 @@ namespace WebCV.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Id_Education = new SelectList(db.Educations, "Id_Education", "EducationName", profile.Id_Education);
-            ViewBag.Id_Experience = new SelectList(db.Experiences, "Id_Experience", "ExperienceName", profile.Id_Experience);
             ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
-            ViewBag.Id_Language = new SelectList(db.Languages, "Id_Language", "LanguageName", profile.Id_Language);
-            ViewBag.Id_Project = new SelectList(db.Projects, "Id_Project", "ProjectName", profile.Id_Project);
-            ViewBag.Id_Skill = new SelectList(db.Skills, "Id_Skill", "SkillName", profile.Id_Skill);
             ViewBag.Id_Specialized = new SelectList(db.Specializeds, "id_Specialized", "SpecializedName", profile.Id_Specialized);
             return View(profile);
         }

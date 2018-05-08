@@ -62,7 +62,7 @@
     @{Html.RenderAction("Slide", "Profile");}
     <!-- //banner -->
     <!--about-->
-    @RenderPage("About.cshtml", "ProfileController")
+    @{Html.RenderAction("About", "Profile");}
     <!-- /services -->
     @RenderPage("Service.cshtml", "ProfileController")
     <!-- //services -->

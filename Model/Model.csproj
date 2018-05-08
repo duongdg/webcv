@@ -59,6 +59,10 @@
     <Compile Include="Framework\Follow.cs" />
     <Compile Include="Framework\Language.cs" />
     <Compile Include="Framework\Profile.cs" />
+    <Compile Include="Framework\Profile_Experience.cs" />
+    <Compile Include="Framework\Profile_Language.cs" />
+    <Compile Include="Framework\Profile_Project.cs" />
+    <Compile Include="Framework\Profile_Skill.cs" />
     <Compile Include="Framework\Project.cs" />
     <Compile Include="Framework\Role.cs" />
     <Compile Include="Framework\Skill.cs" />

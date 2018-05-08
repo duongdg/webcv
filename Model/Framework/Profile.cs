@@ -12,6 +12,10 @@ namespace Model.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profile()
         {
+            Profile_Experience = new HashSet<Profile_Experience>();
+            Profile_Language = new HashSet<Profile_Language>();
+            Profile_Project = new HashSet<Profile_Project>();
+            Profile_Skill = new HashSet<Profile_Skill>();
             Users = new HashSet<User>();
         }
 
@@ -47,15 +51,7 @@ namespace Model.Framework
 
         public bool Status { get; set; }
 
-        public int? Id_Project { get; set; }
-
         public int? Id_Follow { get; set; }
-
-        public int? Id_Language { get; set; }
-
-        public int? Id_Skill { get; set; }
-
-        public int? Id_Experience { get; set; }
 
         public int? Id_Education { get; set; }
 
@@ -63,17 +59,21 @@ namespace Model.Framework
 
         public bool Is_View { get; set; }
 
-        public virtual Experience Experience { get; set; }
-
         public virtual Education Education { get; set; }
 
         public virtual Follow Follow { get; set; }
 
-        public virtual Language Language { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profile_Experience> Profile_Experience { get; set; }
 
-        public virtual Project Project { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profile_Language> Profile_Language { get; set; }
 
-        public virtual Skill Skill { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profile_Project> Profile_Project { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profile_Skill> Profile_Skill { get; set; }
 
         public virtual Specialized Specialized { get; set; }
 

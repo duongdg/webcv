@@ -12,7 +12,7 @@ namespace Model.Framework
         [Key]
         public int Id_User { get; set; }
 
-        public int Id_Profile { get; set; }
+        public int? Id_Profile { get; set; }
 
         public int Id_Role { get; set; }
 

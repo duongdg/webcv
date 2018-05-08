@@ -19,12 +19,14 @@ namespace WebCV.Controllers
         [ChildActionOnly]
         public ActionResult Slide()
         {
-            var model = new ProfileDAO().ListByGroupId(14);
+            var model = new ProfileDAO().ListByGroupId(16);
             return PartialView(model);
         }
+        [ChildActionOnly]
         public ActionResult About()
         {
-            return View();
+            var model = new ProfileDAO().ListByGroupId(16);
+            return PartialView(model);
         }
         public ActionResult Service()
         {
