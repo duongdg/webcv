@@ -187,6 +187,7 @@
     <Content Include="Content\Profile\css\jquery.fatNav.css" />
     <Content Include="Content\Profile\css\lightbox.css" />
     <Content Include="Content\Profile\css\style.css" />
+    <Content Include="Content\Profile\css\style01.css" />
     <Content Include="Content\Profile\images\about.jpg" />
     <Content Include="Content\Profile\images\arrow.png" />
     <Content Include="Content\Profile\images\bg.jpg" />

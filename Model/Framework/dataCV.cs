@@ -27,9 +27,14 @@ namespace Model.Framework
         public virtual DbSet<Specialized> Specializeds { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<View_Profile> View_Profile { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Experience>()
+                .Property(e => e.Ex_Date)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Experience>()
                 .HasMany(e => e.Profile_Experience)
                 .WithRequired(e => e.Experience)
@@ -89,6 +94,22 @@ namespace Model.Framework
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<View_Profile>()
+                .Property(e => e.Phone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<View_Profile>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<View_Profile>()
+                .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<View_Profile>()
+                .Property(e => e.Ex_Date)
                 .IsUnicode(false);
         }
     }

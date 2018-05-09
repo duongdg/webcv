@@ -22,6 +22,8 @@ namespace Model.Framework
         [StringLength(100)]
         public string ProjectName { get; set; }
 
+        public string Pr_Descreption { get; set; }
+
         public bool Status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

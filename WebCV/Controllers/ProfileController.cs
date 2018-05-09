@@ -38,17 +38,23 @@ namespace WebCV.Controllers
             var model = new SkillDAO().ListAll();
             return PartialView(model);
         }
+        [ChildActionOnly]
         public ActionResult Project()
         {
-            return View();
+            var model = new ViewProfileDAO().ListByGroupId(16);
+            return PartialView(model);
         }
+        [ChildActionOnly]
         public ActionResult Experience()
         {
-            return View();
+            var model = new ViewProfileDAO().ListByGroupId(16);
+            return PartialView(model);
         }
+        [ChildActionOnly]
         public ActionResult Contact()
         {
-            return View();
+            var model = new ProfileDAO().ListByGroupId(16);
+            return PartialView(model);
         }
     }
 }

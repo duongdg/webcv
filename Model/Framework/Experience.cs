@@ -22,6 +22,11 @@ namespace Model.Framework
         [StringLength(100)]
         public string ExperienceName { get; set; }
 
+        [StringLength(50)]
+        public string Ex_Date { get; set; }
+
+        public string Ex_Descreptiom { get; set; }
+
         public bool Status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

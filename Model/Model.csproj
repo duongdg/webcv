@@ -53,6 +53,7 @@
     <Compile Include="DAO\AdminDAO.cs" />
     <Compile Include="DAO\ProfileDAO.cs" />
     <Compile Include="DAO\SkillDAO.cs" />
+    <Compile Include="DAO\ViewProfileDAO.cs" />
     <Compile Include="Framework\dataCV.cs" />
     <Compile Include="Framework\Education.cs" />
     <Compile Include="Framework\Experience.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Framework\Specialized.cs" />
     <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="Framework\User.cs" />
+    <Compile Include="Framework\View_Profile.cs" />
     <Compile Include="LanguageModel.cs" />
     <Compile Include="Properties\AdminModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
