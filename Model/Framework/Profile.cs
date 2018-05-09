@@ -37,6 +37,8 @@ namespace Model.Framework
         [Column(TypeName = "date")]
         public DateTime DateofBirth { get; set; }
 
+        public string Image { get; set; }
+
         public int Sex { get; set; }
 
         [StringLength(250)]

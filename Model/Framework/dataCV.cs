@@ -45,6 +45,10 @@ namespace Model.Framework
                 .IsUnicode(false);
 
             modelBuilder.Entity<Profile>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Profile>()
                 .HasMany(e => e.Profile_Experience)
                 .WithRequired(e => e.Profile)
                 .WillCascadeOnDelete(false);
