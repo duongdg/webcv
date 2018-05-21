@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.Framework.Experience>
+﻿@model List<WebCV.Models.Experience>
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +8,7 @@
 <div class="card mb-3">
     <div class="card-header">
         <i class="fa fa-table"></i> Experiences
-        <button type="button" class="btn btn-info btn_Add">Add</button>
+        <a href="@Url.Action("Create", "Experiences")" class="btn btn-info btn_Add">Add</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -16,10 +16,16 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.ExperienceName)
+                           ExperienceName
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Status)
+                            Date
+                        </th>
+                        <th>
+                            Descreption
+                        </th>
+                        <th>
+                            Status
                         </th>
                         <th class="W_action">Action</th>
                     </tr>
@@ -32,11 +38,24 @@
                                 @Html.DisplayFor(modelItem => item.ExperienceName)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.Ex_Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ex_Descreptiom)
+                            </td>
+                            <td>
                                @(item.Status ? "Actived" : "Block")
                             </td>
                             <td>
-                                <button type="button" class="btn btn-primary btn-sm">Update</button>
-                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                <a class="btn btn-primary btn-sm" href="@Url.Action("Edit",new {@id=item.Id_Experience})">Update</a>
+                                <div class="div-a-color">
+                                    @Ajax.ActionLink("Delete", "Delete", new { @id = item.Id_Experience }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xóa bản ghi này không?",
+                                   OnComplete = "$('#row_" + @item.Id_Experience + "').remove(); window.location.reload()",
+                                   HttpMethod = "Delete"
+                               })
+                                </div>
                             </td>
                         </tr>
                     }

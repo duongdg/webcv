@@ -1,5 +1,4 @@
-﻿using Model.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +8,16 @@ namespace Model.DAO
 {
     public class SkillDAO
     {
-        dataCV db = null;
+        //dataCV db = null;
 
-        public SkillDAO()
-        {
-            db = new dataCV();
+        //public SkillDAO()
+        //{
+        //    db = new dataCV();
 
-        }
-        public List<Skill> ListAll()
-        {
-            return db.Skills.Where(x=>x.Status==true).ToList();
-        }
+        //}
+        //public List<Skill> ListAll()
+        //{
+        //    return db.Skills.Where(x=>x.Status==true).ToList();
+        //}
     }
 }

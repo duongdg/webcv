@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Model.Framework.Education>
-
+﻿@model List<WebCV.Models.Education>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -7,20 +6,17 @@
 
 <div class="card mb-3">
     <div class="card-header">
-        <i class="fa fa-table"></i> Education
-        <button type="button" class="btn btn-info btn_Add">Add</button>
+        <i class="fa fa-table"></i> Educations
+        <a class="btn btn-info btn_Add" href="@Url.Action("Create", "Education")">Add</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.EducationName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Status)
-                        </th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
                         <th class="W_action">Action</th>
                     </tr>
                 </thead>
@@ -28,15 +24,19 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EducationName)
-                            </td>
-                            <td>
-                               @(item.Status ? "Actived" : "Block")
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">Update</button>
-                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            <td>@Html.DisplayFor(modelItem => item.Id_Education)</td>
+                            <td>@Html.DisplayFor(modelItem => item.EducationName)</td>
+                            <td>@(item.Status ? "Actived" : "Block")</td>
+                            <td style="display:flex;">
+                                <a class="btn btn-primary btn-sm" href="@Url.Action("Edit",new {@id=item.Id_Education})">Update</a>
+                                <div class="div-a-color">
+                                    @Ajax.ActionLink("Delete", "Delete", new { @id = item.Id_Education }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xóa bản ghi này không?",
+                                   OnComplete = "$('#row_" + @item.Id_Education + "').remove(); window.location.reload()",
+                                   HttpMethod = "Delete"
+                               })
+                                </div>
                             </td>
                         </tr>
                     }
@@ -46,4 +46,3 @@
     </div>
     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
-

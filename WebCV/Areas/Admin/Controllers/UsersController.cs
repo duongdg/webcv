@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Model.Framework;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class UsersController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
 
         // GET: Admin/Users
         public ActionResult Index()

@@ -1,0 +1,30 @@
+﻿@model List<WebCV.Models.Count_Follow_Result>
+<div class="tc-ch wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+    @foreach (var item in Model)
+    {
+        <div class="tch-img">
+            <a href=""><img src="~/Content/Home/images/t4.jpg" class="img-responsive" alt=""></a>
+        </div>
+
+        <h3><a href="">@item.FullName</a></h3>
+        <h6>BY <a href="">@item.Adress - @item.Phone </a>JULY 10 2016.</h6>
+        <p>@item.Descreption</p>
+        <div class="bht1">
+            <a href="@Url.Action("ResponProfile",new {@Id_Profile=item.Id_Profile})">Continue Reading</a>
+        </div>
+        <div class="soci">
+            <ul>
+                @* <li class=""><a href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/heart01.png" /></a></li>*@
+                <li>
+                    <div class="fb-like" data-href="http://realmadrid.com.vn/index.aspx?tabid=19&article=1394" data-send="true" data-width="500" data-show-faces="true"></div>
+                </li>
+                <li class="hvr-rectangle-out"><a class="" href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/messeage.jpg" /></a></li>
+            </ul>
+        </div>
+    }
+    <div class="clearfix"></div>
+</div>
+
+
+
+

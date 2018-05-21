@@ -1,5 +1,4 @@
-﻿using Model.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,22 +9,22 @@ namespace Model
 {
     public class AdminModel
     {
-        private dataCV context = null;
-        public AdminModel()
-        {
-            context = new dataCV();
-        }
-        public bool Login(string email, string password, string status)
-        {
-            object[] sqlparams =
-                {
-                    new SqlParameter("@Email", email),
-                    new SqlParameter("@PassWord", password),
+        //private dataCV context = null;
+        //public AdminModel()
+        //{
+        //    context = new dataCV();
+        //}
+        //public bool Login(string email, string password, string status)
+        //{
+        //    object[] sqlparams =
+        //        {
+        //            new SqlParameter("@Email", email),
+        //            new SqlParameter("@PassWord", password),
                    
-                };
-            var res = context.Database.SqlQuery<bool>("Admin_Login @Email, @PassWord", sqlparams).SingleOrDefault();
-            return res;
-        }
+        //        };
+        //    var res = context.Database.SqlQuery<bool>("Admin_Login @Email, @PassWord", sqlparams).SingleOrDefault();
+        //    return res;
+        //}
 
 
     }

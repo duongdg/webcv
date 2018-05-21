@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.Framework.User>
+﻿@model List<WebCV.Models.User>
 
 @{
     ViewBag.Title = "Index";
@@ -16,19 +16,19 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Profile.FullName)
+                            FullName
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Role.RoleName)
+                            RoleName
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.PassWord)
+                            PassWord
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Email)
+                            Email
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Status)
+                            Status
                         </th>
                         <th class="W_action">Action</th>
                     </tr>
@@ -38,16 +38,16 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Profile.FullName)
+                                item.Profile.FullName
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Role.RoleName)
+                                @item.Role.RoleName
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.PassWord)
+                                @item.PassWord
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Email)
+                                @item.Email
                             </td>
                             <td>
                                 @(item.Status ? "Actived" : "Block")

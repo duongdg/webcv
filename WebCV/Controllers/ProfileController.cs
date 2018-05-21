@@ -1,60 +1,68 @@
-﻿using Model.DAO;
-using Model.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebCV.Models;
+using System.Configuration;
+using Common;
 
 namespace WebCV.Controllers
 {
     public class ProfileController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
         // GET: Profile
-        public ActionResult Profile()
+        public ActionResult Profile(int Id_Profile)
         {
             return View();
         }
         [ChildActionOnly]
-        public ActionResult Slide()
+        public ActionResult Slide(int Id_Profile)
         {
-            var model = new ProfileDAO().ListByGroupId(16);
-            return PartialView(model);
+           var sile = db.Profiles.Where(x=>x.Id_Profile== Id_Profile).ToList();
+           return PartialView(sile);
         }
         [ChildActionOnly]
-        public ActionResult About()
+        public ActionResult About(int Id_Profile)
         {
-            var model = new ProfileDAO().ListByGroupId(16);
-            return PartialView(model);
+            var about = db.Profiles.Where(x => x.Id_Profile == Id_Profile).ToList();
+            return PartialView(about);
         }
         public ActionResult Service()
         {
             return View();
         }
         [ChildActionOnly]
-        public ActionResult Skill()
+        public ActionResult Skill(int Id_Profile)
         {
-            var model = new SkillDAO().ListAll();
+            var skill = db.View_Profile_Skill.Where(x => x.Id_Profile == Id_Profile).ToList();
+            return PartialView(skill);
+        }
+        [ChildActionOnly]
+        public ActionResult Project(int Id_Profile)
+        {
+            var model = db.View_Profile_Project.Where(x => x.Id_Profile == Id_Profile).ToList();
             return PartialView(model);
         }
         [ChildActionOnly]
-        public ActionResult Project()
+        public ActionResult Experience(int Id_Profile)
         {
-            var model = new ViewProfileDAO().ListByGroupId(16);
-            return PartialView(model);
+            var experience = db.View_Profile_Experience.Where(x => x.Id_Profile == Id_Profile).ToList();
+            return PartialView(experience);
         }
         [ChildActionOnly]
-        public ActionResult Experience()
+        public ActionResult Contact(int Id_Profile)
         {
-            var model = new ViewProfileDAO().ListByGroupId(16);
-            return PartialView(model);
+            var contact = db.Profiles.Where(x => x.Id_Profile == Id_Profile).ToList();
+            return PartialView(contact);
         }
-        [ChildActionOnly]
-        public ActionResult Contact()
+        public void Send()
         {
-            var model = new ProfileDAO().ListByGroupId(16);
-            return PartialView(model);
+            string content;
+            content = "Email";
+            var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+            new MailHelper().SendMail(toEmail, "TT lien he moi", content);
         }
     }
 }

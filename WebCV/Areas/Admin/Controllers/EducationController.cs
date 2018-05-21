@@ -1,91 +1,124 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebCV.Areas.Admin.Code;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class EducationController : Controller
     {
-        Model.Framework.dataCV db = new Model.Framework.dataCV();
-        // GET: Admin/Education
+        WebCVEntities db = new WebCVEntities();
+
+        // GET: Admin/Educations
         public ActionResult Index()
         {
-            var obj = db.Educations;
-            return View(obj);
+            return View(db.Educations.ToList());
         }
 
-        // GET: Admin/Education/Details/5
-        public ActionResult Details(int id)
+        // GET: Admin/Educations/Details/5
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Education Education = db.Educations.Find(id);
+            if (Education == null)
+            {
+                return HttpNotFound();
+            }
+            return View(Education);
         }
 
-        // GET: Admin/Education/Create
+        // GET: Admin/Educations/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Education/Create
+        // POST: Admin/Educations/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id_Education,EducationName,Status")] Education Education)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Educations.Add(Education);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
+
+            return View(Education);
+        }
+
+        // GET: Admin/Educations/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-        }
-
-        // GET: Admin/Education/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Admin/Education/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            Education Education = db.Educations.Find(id);
+            if (Education == null)
             {
-                // TODO: Add update logic here
+                return HttpNotFound();
+            }
+            return View(Education);
+        }
 
+        // POST: Admin/Educations/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id_Education,EducationName,Status")] Education Education)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(Education).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(Education);
         }
 
-        // GET: Admin/Education/Delete/5
+        // GET: Admin/Educations/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Education Education = db.Educations.Find(id);
+            if (Education == null)
+            {
+                return HttpNotFound();
+            }
+            return View(Education);
+        }
+
+        // POST: Admin/Educations/Delete/5
+        [HttpDelete]
         public ActionResult Delete(int id)
         {
-            return View();
+            new EducationModel().Delete(id);
+            return RedirectToAction("Index");
         }
 
-        // POST: Admin/Education/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        protected override void Dispose(bool disposing)
         {
-            try
+            if (disposing)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                db.Dispose();
             }
-            catch
-            {
-                return View();
-            }
+            base.Dispose(disposing);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Model.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +8,16 @@ namespace Model.DAO
 {
     public class ProfileDAO
     {
-        dataCV db = null;
+        //dataCV db = null;
 
-        public ProfileDAO()
-        {
-            db = new dataCV();
+        //public ProfileDAO()
+        //{
+        //    db = new dataCV();
 
-        }
-        public List<Profile> ListByGroupId(int id)
-        {
-            return db.Profiles.Where(x => x.Id_Profile == id).ToList();
-        }
+        //}
+        //public List<Profile> ListByGroupId(int id)
+        //{
+        //    return db.Profiles.Where(x => x.Id_Profile == id).ToList();
+        //}
     }
 }

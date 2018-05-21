@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Model.Framework;
+using WebCV.Areas.Admin.Code;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class ExperiencesController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
 
         // GET: Admin/Experiences
         public ActionResult Index()
@@ -46,7 +47,7 @@ namespace WebCV.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Experience,ExperienceName,Status")] Experience experience)
+        public ActionResult Create([Bind(Include = "Id_Experience,ExperienceName,Ex_Date,Ex_Descreptiom,Status")] Experience experience)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace WebCV.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Experience,ExperienceName,Status")] Experience experience)
+        public ActionResult Edit([Bind(Include = "Id_Experience,ExperienceName,Ex_Date,Ex_Descreptiom,Status")] Experience experience)
         {
             if (ModelState.IsValid)
             {
@@ -105,13 +106,10 @@ namespace WebCV.Areas.Admin.Controllers
         }
 
         // POST: Admin/Experiences/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            Experience experience = db.Experiences.Find(id);
-            db.Experiences.Remove(experience);
-            db.SaveChanges();
+            new ExperienceModel().Delete(id);
             return RedirectToAction("Index");
         }
 

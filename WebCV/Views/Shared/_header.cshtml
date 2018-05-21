@@ -6,10 +6,17 @@
                     <input class="search_box" type="checkbox" id="search_box">
                     <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
                     <div class="search_form">
-                        <form action="#" method="post">
-                            <input type="text" name="Search" placeholder="Search...">
-                            <input type="submit" value="Send">
-                        </form>
+                        @*<form action="~/Home/Search" method="get">
+                            <input type="text" id="txtSearch" name="Search" placeholder="Search...">
+                            <input type="submit" value="Sech">
+                        </form>*@
+                        @using (Html.BeginForm("Search", "Search", FormMethod.Post))
+                        {
+                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Tìm truyện, tác giả..." })
+                            <button class="w3-btn search-bar-button" type="submit">
+                                Search
+                            </button>
+                        }
                     </div>
                 </div>
             </div>
@@ -30,14 +37,9 @@
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                     <nav class="link-effect-7" id="link-effect-7">
                         <ul class="nav navbar-nav">
-                            <li class="active act"><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="features.html">Features</a></li>
-                            <li><a href="travel.html">Travel</a></li>
-                            <li><a href="fashion.html">Fashion</a></li>
-                            <li><a href="music.html">Music</a></li>
-                            <li><a href="codes.html">Codes</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li class="active act"><a href="http://localhost:61528/Home/Home">Home</a></li>
+                            <li><a href="http://localhost:61528/Home/About">About</a></li>
+                            @*<li><a href="http://localhost:61528/Profile/Profile">Profile</a></li>*@
                         </ul>
                     </nav>
                 </div>

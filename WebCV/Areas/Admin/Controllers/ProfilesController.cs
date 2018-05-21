@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Model.Framework;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class ProfilesController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
 
         // GET: Admin/Profiles
         public ActionResult Index()
         {
-            var profiles = db.Profiles.Include(p => p.Education).Include(p => p.Follow).Include(p => p.Specialized);
+            //var profiles = db.Profiles.Include(p => p.Education).Include(p => p.Follow).Include(p => p.Specialized);
+            var profiles = db.Profiles.Include(p => p.Education).Include(p => p.Specialized).Include(p=>p.Profile_Language);
             return View(profiles.ToList());
         }
 
@@ -54,7 +55,7 @@ namespace WebCV.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Profile,FullName,Phone,Adress,DateofBirth,Sex,Hobbies,Descreption,TargetJob,Status,Id_Project,Id_Follow,Id_Language,Id_Skill,Id_Experience,Id_Education,Id_Specialized,Is_View")] Profile profile)
+        public ActionResult Create([Bind(Include = "Id_Profile,FullName,Phone,Adress,DateofBirth,Sex,Hobbies,Descreption,TargetJob,Status,Id_Education,Id_Specialized,Is_View")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +65,7 @@ namespace WebCV.Areas.Admin.Controllers
             }
 
             ViewBag.Id_Education = new SelectList(db.Educations, "Id_Education", "EducationName", profile.Id_Education);
-            ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
+            //ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
             ViewBag.Id_Specialized = new SelectList(db.Specializeds, "id_Specialized", "SpecializedName", profile.Id_Specialized);
             return View(profile);
         }
@@ -82,7 +83,7 @@ namespace WebCV.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.Id_Education = new SelectList(db.Educations, "Id_Education", "EducationName", profile.Id_Education);
-            ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
+            //ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
             ViewBag.Id_Specialized = new SelectList(db.Specializeds, "id_Specialized", "SpecializedName", profile.Id_Specialized);
             return View(profile);
         }
@@ -92,7 +93,7 @@ namespace WebCV.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Profile,FullName,Phone,Adress,DateofBirth,Sex,Hobbies,Descreption,TargetJob,Status,Id_Project,Id_Follow,Id_Language,Id_Skill,Id_Experience,Id_Education,Id_Specialized,Is_View")] Profile profile)
+        public ActionResult Edit([Bind(Include = "Id_Profile,FullName,Phone,Adress,DateofBirth,Sex,Hobbies,Descreption,TargetJob,Status,Id_Education,Id_Specialized,Is_View")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +102,7 @@ namespace WebCV.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Id_Education = new SelectList(db.Educations, "Id_Education", "EducationName", profile.Id_Education);
-            ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
+            //ViewBag.Id_Follow = new SelectList(db.Follows, "Id_Follow", "Id_Follow", profile.Id_Follow);
             ViewBag.Id_Specialized = new SelectList(db.Specializeds, "id_Specialized", "SpecializedName", profile.Id_Specialized);
             return View(profile);
         }

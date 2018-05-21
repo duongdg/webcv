@@ -50,28 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminAccountModel.cs" />
-    <Compile Include="DAO\AdminDAO.cs" />
+    <Compile Include="DAO\AdminDAO1.cs" />
     <Compile Include="DAO\ProfileDAO.cs" />
+    <Compile Include="DAO\ProfileWithFollowDAO.cs" />
     <Compile Include="DAO\SkillDAO.cs" />
     <Compile Include="DAO\ViewProfileDAO.cs" />
-    <Compile Include="Framework\dataCV.cs" />
-    <Compile Include="Framework\Education.cs" />
-    <Compile Include="Framework\Experience.cs" />
-    <Compile Include="Framework\Follow.cs" />
-    <Compile Include="Framework\Language.cs" />
-    <Compile Include="Framework\Profile.cs" />
-    <Compile Include="Framework\Profile_Experience.cs" />
-    <Compile Include="Framework\Profile_Language.cs" />
-    <Compile Include="Framework\Profile_Project.cs" />
-    <Compile Include="Framework\Profile_Skill.cs" />
-    <Compile Include="Framework\Project.cs" />
-    <Compile Include="Framework\Role.cs" />
-    <Compile Include="Framework\Skill.cs" />
-    <Compile Include="Framework\Specialized.cs" />
-    <Compile Include="Framework\sysdiagram.cs" />
-    <Compile Include="Framework\User.cs" />
-    <Compile Include="Framework\View_Profile.cs" />
-    <Compile Include="LanguageModel.cs" />
+    <Compile Include="LanguageModel1.cs" />
     <Compile Include="Properties\AdminModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +63,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Framework\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
