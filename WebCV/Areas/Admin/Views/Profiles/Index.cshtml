@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.Framework.Profile>
+﻿@model List<WebCV.Models.Profile>
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +8,7 @@
 <div class="card mb-3">
     <div class="card-header">
         <i class="fa fa-table"></i> Profiles
-        <button type="button" class="btn btn-info btn_Add">Add</button>
+        <a class="btn btn-info btn_Add" href="@Url.Action("Create", "Profiles")">Add</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -16,55 +16,42 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Education.EducationName)
+                           FullName
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Experience.ExperienceName)
+                            Phone
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Follow.Id_Follow)
+                           Adress
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Language.LanguageName)
+                            DateofBirth
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Project.ProjectName)
+                            Image
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Skill.SkillName)
+                            Sex
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Specialized.SpecializedName)
+                            Hobbies
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.FullName)
+                            Descreption
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Phone)
+                            TargetJob
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Adress)
+                            Status
+                        <th>
+                            Education
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.DateofBirth)
+                            Specialized
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Sex)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Hobbies)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Descreption)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.TargetJob)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Status)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Is_View)
+                            Is_View
                         </th>
                         <th>Action</th>
                     </tr>
@@ -74,27 +61,6 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Education.EducationName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Experience.ExperienceName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Follow.Id_Follow)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Language.LanguageName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Project.ProjectName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Skill.SkillName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Specialized.SpecializedName)
-                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.FullName)
                             </td>
@@ -106,6 +72,9 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.DateofBirth)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Image)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Sex)
@@ -123,6 +92,12 @@
                                 @Html.DisplayFor(modelItem => item.Status)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.Education.EducationName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Specialized.SpecializedName)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.Is_View)
                             </td>
                             <td>
@@ -136,6 +111,5 @@
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
 

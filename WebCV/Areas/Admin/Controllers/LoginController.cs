@@ -1,6 +1,4 @@
-﻿using Model;
-using Model.DAO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

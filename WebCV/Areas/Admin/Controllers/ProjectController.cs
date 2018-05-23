@@ -1,91 +1,124 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebCV.Areas.Admin.Code;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class ProjectController : Controller
     {
-        Model.Framework.dataCV db = new Model.Framework.dataCV();
-        // GET: Admin/Project
+        WebCVEntities db = new WebCVEntities();
+
+        // GET: Admin/Projects
         public ActionResult Index()
         {
-            var obj = db.Projects;
-            return View(obj);
+            return View(db.Projects.ToList());
         }
 
-        // GET: Admin/Project/Details/5
-        public ActionResult Details(int id)
+        // GET: Admin/Projects/Details/5
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Project Project = db.Projects.Find(id);
+            if (Project == null)
+            {
+                return HttpNotFound();
+            }
+            return View(Project);
         }
 
-        // GET: Admin/Project/Create
+        // GET: Admin/Projects/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Project/Create
+        // POST: Admin/Projects/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id_Project,ProjectName,Pr_Descreption,Status")] Project Project)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Projects.Add(Project);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
+
+            return View(Project);
+        }
+
+        // GET: Admin/Projects/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-        }
-
-        // GET: Admin/Project/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Admin/Project/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            Project Project = db.Projects.Find(id);
+            if (Project == null)
             {
-                // TODO: Add update logic here
+                return HttpNotFound();
+            }
+            return View(Project);
+        }
 
+        // POST: Admin/Projects/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id_Project,ProjectName,Pr_Descreption,Status")] Project Project)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(Project).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(Project);
         }
 
-        // GET: Admin/Project/Delete/5
+        // GET: Admin/Projects/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Project Project = db.Projects.Find(id);
+            if (Project == null)
+            {
+                return HttpNotFound();
+            }
+            return View(Project);
+        }
+
+        // POST: Admin/Projects/Delete/5
+        [HttpDelete]
         public ActionResult Delete(int id)
         {
-            return View();
+            new ProjectModel().Delete(id);
+            return RedirectToAction("Index");
         }
 
-        // POST: Admin/Project/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        protected override void Dispose(bool disposing)
         {
-            try
+            if (disposing)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                db.Dispose();
             }
-            catch
-            {
-                return View();
-            }
+            base.Dispose(disposing);
         }
     }
 }

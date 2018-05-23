@@ -21,7 +21,7 @@
     <!-- custom css theme files -->
     <link rel="stylesheet" href="~/Content/Profile/css/bootstrap.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="~/Content/Profile/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="~/Content/Profile/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/Profile/css/style01.css" type="text/css" media="all">
     <!-- //custom css theme files -->
 </head>
 <!-- Body -->
@@ -59,27 +59,22 @@
             </div>
         </div> <!-- end container -->
     </nav>
-    @{Html.RenderAction("Slide", "Profile");}
+    @Html.Action("Slide", "Profile")
     <!-- //banner -->
     <!--about-->
-    @RenderPage("About.cshtml", "ProfileController")
+    @Html.Action("About", "Profile")
     <!-- /services -->
-    @RenderPage("Service.cshtml", "ProfileController")
+    @Html.Action("Project", "Profile")
     <!-- //services -->
     <!--skills -->
-    @{Html.RenderAction("Skill", "Profile");}
+    @Html.Action("Skill", "Profile")
     <!-- //skills -->
     <!--gallery-->
-    
-    <!--//gallery-->
-    <!-- stats -->
-    @RenderPage("Project.cshtml", "ProfileController")
-    <!-- //stats -->
     <!-- My experience -->
-    @RenderPage("Experience.cshtml", "ProfileController")
+    @Html.Action("Experience", "Profile")
     <!-- //My experience -->
     <!-- comments -->
-    @RenderPage("Contact.cshtml", "ProfileController")
+    @Html.Action("Contact", "Profile")
     <!-- /comments -->
     <div class="w3l_footer">
         <div class="container">

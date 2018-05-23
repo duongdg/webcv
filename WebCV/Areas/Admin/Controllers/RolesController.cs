@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Model.Framework;
+using WebCV.Areas.Admin.Code;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class RolesController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
 
         // GET: Admin/Roles
         public ActionResult Index()
@@ -89,29 +90,10 @@ namespace WebCV.Areas.Admin.Controllers
             return View(role);
         }
 
-        // GET: Admin/Roles/Delete/5
-        public ActionResult Delete(int? id)
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Role role = db.Roles.Find(id);
-            if (role == null)
-            {
-                return HttpNotFound();
-            }
-            return View(role);
-        }
-
-        // POST: Admin/Roles/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Role role = db.Roles.Find(id);
-            db.Roles.Remove(role);
-            db.SaveChanges();
+            new RoleModel().Delete(id);
             return RedirectToAction("Index");
         }
 

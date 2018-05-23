@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Model.Framework;
+using WebCV.Areas.Admin.Code;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class SpecializedsController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
 
         // GET: Admin/Specializeds
         public ActionResult Index()
@@ -90,28 +91,10 @@ namespace WebCV.Areas.Admin.Controllers
         }
 
         // GET: Admin/Specializeds/Delete/5
-        public ActionResult Delete(int? id)
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Specialized specialized = db.Specializeds.Find(id);
-            if (specialized == null)
-            {
-                return HttpNotFound();
-            }
-            return View(specialized);
-        }
-
-        // POST: Admin/Specializeds/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Specialized specialized = db.Specializeds.Find(id);
-            db.Specializeds.Remove(specialized);
-            db.SaveChanges();
+            new SpecializedModel().Delete(id);
             return RedirectToAction("Index");
         }
 

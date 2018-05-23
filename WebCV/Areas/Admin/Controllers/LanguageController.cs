@@ -1,10 +1,10 @@
-﻿using Model;
-using Model.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebCV.Areas.Admin.Code;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
@@ -60,49 +60,45 @@ namespace WebCV.Areas.Admin.Controllers
                 return View();
             }
         }
-
-        // GET: Admin/Language/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+                var language = new LanguageModel().ViewDetails(id);
+                return View(language);
         }
-
-        // POST: Admin/Language/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Language collection)
         {
             try
             {
-                // TODO: Add update logic here
+                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
 
-                return RedirectToAction("Index");
+
+                    var model = new LanguageModel();
+                    var res = model.Update(collection);
+                    if (res)
+                        return RedirectToAction("Index");
+                    else
+                    {
+                        ModelState.AddModelError("", "Update mới không thành công.");
+                    }
+                }
+                return View(collection);
+
             }
             catch
             {
                 return View();
             }
         }
-
-        // GET: Admin/Language/Delete/5
+        // POST: Admin/Language/Delete/5
+        [HttpDelete]
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Admin/Language/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            new LanguageModel().Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

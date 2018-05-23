@@ -1,0 +1,11 @@
+﻿.a-color{
+    color: white !important;
+}
+.div-a-color {
+    width: 55px !important;
+    height: 35px !important;
+    background-color: #F5DEB3 !important;
+    border-radius: 4px !important;
+    text-align: center !important;
+    margin-left: 5px;
+}

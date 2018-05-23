@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.Framework.Skill>
+﻿@model List<WebCV.Models.Skill>
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +8,7 @@
 <div class="card mb-3">
     <div class="card-header">
         <i class="fa fa-table"></i> Skill
-        <button type="button" class="btn btn-info btn_Add">Add</button>
+        <a class="btn btn-info btn_Add" href="@Url.Action("Create", "Skills")">Add</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -16,10 +16,10 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.SkillName)
+                            SkillName
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Status)
+                            Status
                         </th>
                         <th class="W_action">Action</th>
                     </tr>
@@ -35,8 +35,15 @@
                                 @(item.Status ? "Actived" : "Block")
                             </td>
                             <td>
-                                <button type="button" class="btn btn-primary btn-sm">Update</button>
-                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                <a class="btn btn-primary btn-sm" href="@Url.Action("Edit",new {@id=item.Id_Skill})">Update</a>
+                                <div class="div-a-color">
+                                    @Ajax.ActionLink("Delete", "Delete", new { @id = item.Id_Skill }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xóa bản ghi này không?",
+                                   OnComplete = "$('#row_" + @item.Id_Skill + "').remove(); window.location.reload()",
+                                   HttpMethod = "Delete"
+                               })
+                                </div>
                             </td>
                         </tr>
                     }

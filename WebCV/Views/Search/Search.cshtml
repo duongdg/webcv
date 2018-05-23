@@ -1,0 +1,65 @@
+﻿@using WebCV.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<WebCV.Models.View_Profile>
+@{
+    //var tentacgia = (List<TacGia>)TempData["tentacgia"];
+    var TuKhoa = ViewBag.TuKhoa;
+}
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row" style="margin-left:15%;">
+    <h3>@ViewBag.ThongBao</h3>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-5 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+            <div class="tc-ch">
+                <div class="tch-img">
+                    <a href="singlepage.html">
+                        <img src="@item.Image" class="img-responsive img-home-profile" alt="">
+                    </a>
+                </div>
+
+                <h3><a href="singlepage.html">@item.FullName</a></h3>
+                <h6>BY <a href="singlepage.html">ADAM ROSE </a>JULY 10 2016.</h6>
+                <p>@item.Descreption</p>
+                <div class="bht1">
+                    <a href="@Url.Action("ResponProfile", "Home",new {@Id_Profile=item.Id_Profile})">Read More</a>
+                </div>
+                <div class="soci">
+                    <ul>
+                        <li class=""><a href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/heart01.png" /></a></li>
+                        <li class="hvr-rectangle-out"><a class="" href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/messeage.jpg" /></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    }
+</div>
+<!-- PAGES -->
+<div class="w3-center pagination" style="margin-left:15%;">
+    <ul class="w3-pagination paging">
+        @Html.PagedListPager(Model, page => Url.Action("Search", new { page = page, sTuKhoa = TuKhoa }))
+    </ul>
+    @*<script>
+        $(function () {
+            var txt = $('gopage').text();
+            $('btngo').click(function () {
+                alert(txt);
+            });
+        });*@
+    @*</script>*@
+    @*Tao link lien ket cac trang*@
+    <div class="w3-center pages">
+        @*<form class="" method="GET" action="http://webtruyen.com/home/gopage_listbook">*@
+        <span class="w3-tag w3-round numbpage">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</span>
+        <input class="w3-input w3-border" type="text" placeholder="Tới trang" name="gopage" id="txtTrang" />
+        <a class="w3-btn w3-round w3-hover-green" id="btngo" href="@Url.Action("Search",new { @sTuKhoa = ViewBag.sTuKhoa })"><i class="fa fa-arrow-right"></i></a>
+        <input type="hidden" name="hdkey" id="hdkey" value="" />
+        @*</form>*@
+    </div>
+</div>
+

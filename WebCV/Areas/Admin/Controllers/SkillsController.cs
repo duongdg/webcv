@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Model.Framework;
+using WebCV.Areas.Admin.Code;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class SkillsController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
 
         // GET: Admin/Skills
         public ActionResult Index()
@@ -88,33 +89,12 @@ namespace WebCV.Areas.Admin.Controllers
             }
             return View(skill);
         }
-
-        // GET: Admin/Skills/Delete/5
-        public ActionResult Delete(int? id)
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Skill skill = db.Skills.Find(id);
-            if (skill == null)
-            {
-                return HttpNotFound();
-            }
-            return View(skill);
-        }
-
-        // POST: Admin/Skills/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Skill skill = db.Skills.Find(id);
-            db.Skills.Remove(skill);
-            db.SaveChanges();
+            new SkillModel().Delete(id);
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

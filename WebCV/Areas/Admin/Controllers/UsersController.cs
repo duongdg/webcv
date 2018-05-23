@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Model.Framework;
+using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
     public class UsersController : Controller
     {
-        private dataCV db = new dataCV();
+        WebCVEntities db = new WebCVEntities();
 
         // GET: Admin/Users
         public ActionResult Index()
@@ -58,7 +58,7 @@ namespace WebCV.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
+            //ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
             ViewBag.Id_Role = new SelectList(db.Roles, "Id_Role", "RoleName", user.Id_Role);
             return View(user);
         }
@@ -75,7 +75,7 @@ namespace WebCV.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
+            //ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
             ViewBag.Id_Role = new SelectList(db.Roles, "Id_Role", "RoleName", user.Id_Role);
             return View(user);
         }
@@ -93,7 +93,7 @@ namespace WebCV.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
+            //ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
             ViewBag.Id_Role = new SelectList(db.Roles, "Id_Role", "RoleName", user.Id_Role);
             return View(user);
         }

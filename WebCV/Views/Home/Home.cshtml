@@ -20,17 +20,18 @@
         <a href="singlepage.html">READ MORE</a>
     </div>
 </div>
-@RenderPage("_ContentTop.cshtml", "HomeController")
+@Html.Action("ContentTop", "Home")
 <!-- technology-left -->
 <div class="technology">
     <div class="container">
         <div class="col-md-9 technology-left">
             <div class="tech-no">
                 <!-- technology-top -->
-                @RenderPage("_DetailProfile.cshtml", "HomeController")
-                @RenderPage("_Involve.cshtml", "HomeController")
+                @Html.Action("DetailProfile", "Home")
+                @Html.Action("InvolvePartial", "Home")
             </div>
         </div>
-        @RenderPage("_Popular.cshtml", "HomeController")
+        @Html.Action("Popular", "Home")
     </div>
-        </div>
+</div>
+
