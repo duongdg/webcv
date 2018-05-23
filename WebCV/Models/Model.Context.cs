@@ -67,6 +67,40 @@ namespace WebCV.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Count_Follow_Result>("Count_Follow");
         }
     
+        public virtual int Education_Insert(string educationName, Nullable<bool> status)
+        {
+            var educationNameParameter = educationName != null ?
+                new ObjectParameter("EducationName", educationName) :
+                new ObjectParameter("EducationName", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Education_Insert", educationNameParameter, statusParameter);
+        }
+    
+        public virtual int Experience_Insert(string experienceName, string ex_Date, string ex_Descreptiom, Nullable<bool> status)
+        {
+            var experienceNameParameter = experienceName != null ?
+                new ObjectParameter("ExperienceName", experienceName) :
+                new ObjectParameter("ExperienceName", typeof(string));
+    
+            var ex_DateParameter = ex_Date != null ?
+                new ObjectParameter("Ex_Date", ex_Date) :
+                new ObjectParameter("Ex_Date", typeof(string));
+    
+            var ex_DescreptiomParameter = ex_Descreptiom != null ?
+                new ObjectParameter("Ex_Descreptiom", ex_Descreptiom) :
+                new ObjectParameter("Ex_Descreptiom", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Experience_Insert", experienceNameParameter, ex_DateParameter, ex_DescreptiomParameter, statusParameter);
+        }
+    
         public virtual int Langauge_Insert(string languageName, Nullable<bool> status)
         {
             var languageNameParameter = languageName != null ?
@@ -85,9 +119,47 @@ namespace WebCV.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Language_ListAll_Result>("Language_ListAll");
         }
     
-        public virtual ObjectResult<Profile_Popular_Result> Profile_Popular()
+        public virtual int Project_Insert(string projectName, string pr_Descreption, Nullable<bool> status)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Profile_Popular_Result>("Profile_Popular");
+            var projectNameParameter = projectName != null ?
+                new ObjectParameter("ProjectName", projectName) :
+                new ObjectParameter("ProjectName", typeof(string));
+    
+            var pr_DescreptionParameter = pr_Descreption != null ?
+                new ObjectParameter("Pr_Descreption", pr_Descreption) :
+                new ObjectParameter("Pr_Descreption", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Project_Insert", projectNameParameter, pr_DescreptionParameter, statusParameter);
+        }
+    
+        public virtual int Role_Insert(string roleName, Nullable<bool> status)
+        {
+            var roleNameParameter = roleName != null ?
+                new ObjectParameter("RoleName", roleName) :
+                new ObjectParameter("RoleName", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Role_Insert", roleNameParameter, statusParameter);
+        }
+    
+        public virtual int Skill_Insert(string skillName, Nullable<bool> status)
+        {
+            var skillNameParameter = skillName != null ?
+                new ObjectParameter("SkillName", skillName) :
+                new ObjectParameter("SkillName", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skill_Insert", skillNameParameter, statusParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -193,98 +265,6 @@ namespace WebCV.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
-        public virtual ObjectResult<Top3_Profile_Popular_Result> Top3_Profile_Popular()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top3_Profile_Popular_Result>("Top3_Profile_Popular");
-        }
-    
-        public virtual ObjectResult<Top6_Profile_Popular_Result> Top6_Profile_Popular()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top6_Profile_Popular_Result>("Top6_Profile_Popular");
-        }
-    
-        public virtual ObjectResult<Top3_Profile_Multil_Language_Result> Top3_Profile_Multil_Language()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top3_Profile_Multil_Language_Result>("Top3_Profile_Multil_Language");
-        }
-    
-        public virtual int Education_Insert(string educationName, Nullable<bool> status)
-        {
-            var educationNameParameter = educationName != null ?
-                new ObjectParameter("EducationName", educationName) :
-                new ObjectParameter("EducationName", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("Status", status) :
-                new ObjectParameter("Status", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Education_Insert", educationNameParameter, statusParameter);
-        }
-    
-        public virtual int Experience_Insert(string experienceName, string ex_Date, string ex_Descreptiom, Nullable<bool> status)
-        {
-            var experienceNameParameter = experienceName != null ?
-                new ObjectParameter("ExperienceName", experienceName) :
-                new ObjectParameter("ExperienceName", typeof(string));
-    
-            var ex_DateParameter = ex_Date != null ?
-                new ObjectParameter("Ex_Date", ex_Date) :
-                new ObjectParameter("Ex_Date", typeof(string));
-    
-            var ex_DescreptiomParameter = ex_Descreptiom != null ?
-                new ObjectParameter("Ex_Descreptiom", ex_Descreptiom) :
-                new ObjectParameter("Ex_Descreptiom", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("Status", status) :
-                new ObjectParameter("Status", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Experience_Insert", experienceNameParameter, ex_DateParameter, ex_DescreptiomParameter, statusParameter);
-        }
-    
-        public virtual int Project_Insert(string projectName, string pr_Descreption, Nullable<bool> status)
-        {
-            var projectNameParameter = projectName != null ?
-                new ObjectParameter("ProjectName", projectName) :
-                new ObjectParameter("ProjectName", typeof(string));
-    
-            var pr_DescreptionParameter = pr_Descreption != null ?
-                new ObjectParameter("Pr_Descreption", pr_Descreption) :
-                new ObjectParameter("Pr_Descreption", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("Status", status) :
-                new ObjectParameter("Status", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Project_Insert", projectNameParameter, pr_DescreptionParameter, statusParameter);
-        }
-    
-        public virtual int Role_Insert(string roleName, Nullable<bool> status)
-        {
-            var roleNameParameter = roleName != null ?
-                new ObjectParameter("RoleName", roleName) :
-                new ObjectParameter("RoleName", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("Status", status) :
-                new ObjectParameter("Status", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Role_Insert", roleNameParameter, statusParameter);
-        }
-    
-        public virtual int Skill_Insert(string skillName, Nullable<bool> status)
-        {
-            var skillNameParameter = skillName != null ?
-                new ObjectParameter("SkillName", skillName) :
-                new ObjectParameter("SkillName", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("Status", status) :
-                new ObjectParameter("Status", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Skill_Insert", skillNameParameter, statusParameter);
-        }
-    
         public virtual int Specialized_Insert(string specializedName, Nullable<bool> status)
         {
             var specializedNameParameter = specializedName != null ?
@@ -296,6 +276,16 @@ namespace WebCV.Models
                 new ObjectParameter("Status", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Specialized_Insert", specializedNameParameter, statusParameter);
+        }
+    
+        public virtual ObjectResult<Top3_Profile_Multil_Language_Result> Top3_Profile_Multil_Language()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top3_Profile_Multil_Language_Result>("Top3_Profile_Multil_Language");
+        }
+    
+        public virtual ObjectResult<Top6_Profile_Popular_Result> Top6_Profile_Popular()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top6_Profile_Popular_Result>("Top6_Profile_Popular");
         }
     }
 }

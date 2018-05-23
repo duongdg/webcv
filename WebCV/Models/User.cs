@@ -15,7 +15,6 @@ namespace WebCV.Models
     public partial class User
     {
         public int Id_User { get; set; }
-        public Nullable<int> Id_Profile { get; set; }
         public int Id_Role { get; set; }
         public string PassWord { get; set; }
         public string Email { get; set; }

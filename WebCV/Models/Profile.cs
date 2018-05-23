@@ -22,7 +22,6 @@ namespace WebCV.Models
             this.Profile_Language = new HashSet<Profile_Language>();
             this.Profile_Project = new HashSet<Profile_Project>();
             this.Profile_Skill = new HashSet<Profile_Skill>();
-            this.Users = new HashSet<User>();
         }
     
         public int Id_Profile { get; set; }
@@ -52,7 +51,6 @@ namespace WebCV.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Profile_Skill> Profile_Skill { get; set; }
         public virtual Specialized Specialized { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual User User { get; set; }
     }
 }

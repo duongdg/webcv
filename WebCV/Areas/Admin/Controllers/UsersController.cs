@@ -58,7 +58,7 @@ namespace WebCV.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
+            //ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
             ViewBag.Id_Role = new SelectList(db.Roles, "Id_Role", "RoleName", user.Id_Role);
             return View(user);
         }
@@ -75,7 +75,7 @@ namespace WebCV.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
+            //ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
             ViewBag.Id_Role = new SelectList(db.Roles, "Id_Role", "RoleName", user.Id_Role);
             return View(user);
         }
@@ -93,7 +93,7 @@ namespace WebCV.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
+            //ViewBag.Id_Profile = new SelectList(db.Profiles, "Id_Profile", "FullName", user.Id_Profile);
             ViewBag.Id_Role = new SelectList(db.Roles, "Id_Role", "RoleName", user.Id_Role);
             return View(user);
         }

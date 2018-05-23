@@ -240,15 +240,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\WebCVEntity.Context.tt">
+    <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WebCVEntity.edmx</DependentUpon>
-      <LastGenOutput>WebCVEntity.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\WebCVEntity.tt">
+    <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WebCVEntity.edmx</DependentUpon>
-      <LastGenOutput>WebCVEntity.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -375,19 +375,19 @@
     <Content Include="Content\Home\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Home\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Home\fonts\glyphicons-halflings-regular.woff2" />
-    <EntityDeploy Include="Models\WebCVEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WebCVEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\WebCVEntity.edmx.diagram">
-      <DependentUpon>WebCVEntity.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Project\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Project\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Language\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Language\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Education\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Education\Edit.cshtml" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -438,106 +438,100 @@
     </Compile>
     <Compile Include="MailHelper.cs" />
     <Compile Include="Models\Count_Follow_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Education.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Experience.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Follow.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Language.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Language_ListAll_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Profile.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Profile_Experience.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Profile_Language.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Profile_Popular_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Profile_Project.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Profile_Skill.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Project.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Skill.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Specialized.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Top3_Profile_Multil_Language_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Top3_Profile_Popular_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Top6_Profile_Popular_Result.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Profile.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Profile_Experience.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Profile_Follow.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Profile_Language.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Profile_Project.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Profile_Skill.cs">
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WebCVEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WebCVEntity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WebCVEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WebCVEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WebCVEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WebCVEntity.edmx</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
