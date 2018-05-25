@@ -1,4 +1,6 @@
-﻿@model List<WebCV.Models.Profile>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<WebCV.Models.Profile>
 <div class="clearfix"></div>
 <div class="w3ls">
     @foreach (var item in Model)
@@ -28,6 +30,19 @@
         </div>
     }
     <div class="clearfix"></div>
+    <!-- PAGES -->
+    <div class="w3-center pagination" style="margin-left:25%;">
+        <ul class="w3-pagination paging">
+            @Html.PagedListPager(Model, page => Url.Action("Home", "Home", new { page = page }))
+        </ul>
+        @*Tao link lien ket cac trang*@
+        @*<div class="w3-center pages">
+            <span class="w3-tag w3-round numbpage">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</span>
+            <input class="w3-input w3-border" type="text" placeholder="Tới trang" name="gopage" id="txtTrang" />
+            <a class="w3-btn w3-round w3-hover-green" id="btngo" href="@Url.Action("InvolvePartial")"><i class="fa fa-arrow-right"></i></a>
+            <input type="hidden" name="hdkey" id="hdkey" value="" />
+        </div>*@
+    </div>
 </div>
 
 

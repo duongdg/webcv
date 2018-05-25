@@ -45,6 +45,15 @@ namespace WebCV.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", "Mật khẩu không đúng.");
                 }
+                else if(result == 2)
+                {
+                    var admin = dao.GetByID(model.Email);
+                    var adminSession = new AdminLogin();
+                    adminSession.Email = admin.Email;
+                    adminSession.Id_Admin = admin.Id_User;
+                    Session.Add(CommonConstant.ADMIN_SESION, adminSession);
+                    Response.Redirect("http://localhost:61528");
+                }
                 else
                 {
                     ModelState.AddModelError("", "Đăng nhập không đúng.");

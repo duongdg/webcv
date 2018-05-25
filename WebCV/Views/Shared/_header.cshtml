@@ -12,10 +12,8 @@
                         </form>*@
                         @using (Html.BeginForm("Search", "Search", FormMethod.Post))
                         {
-                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Tìm truyện, tác giả..." })
-                            <button class="w3-btn search-bar-button" type="submit">
-                                Search
-                            </button>
+                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @placeholder = "Tìm theo tên" })
+                            <input class="icon-search" type="submit" value="Tìm" />
                         }
                     </div>
                 </div>

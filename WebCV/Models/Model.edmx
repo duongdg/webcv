@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="WebCVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="WebCVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Education">
           <Key>
             <PropertyRef Name="Id_Education" />
@@ -43,7 +43,7 @@
           <Key>
             <PropertyRef Name="Id_Profile" />
           </Key>
-          <Property Name="Id_Profile" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Profile" Type="int" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="11" Nullable="false" />
           <Property Name="Adress" Type="nvarchar" MaxLength="250" Nullable="false" />
@@ -208,12 +208,15 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Experience' does not have a
             <PropertyRef Name="ExperienceName" />
             <PropertyRef Name="Id_Profile" />
             <PropertyRef Name="Status" />
+            <PropertyRef Name="Id_Experience" />
           </Key>
           <Property Name="ExperienceName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Ex_Date" Type="varchar" MaxLength="50" />
           <Property Name="Ex_Descreptiom" Type="nvarchar(max)" />
           <Property Name="Id_Profile" Type="int" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Id_Experience" Type="int" Nullable="false" />
+          <Property Name="Image" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'WebCV.dbo.View_Profile_Follow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -279,10 +282,13 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
             <PropertyRef Name="Id_Profile" />
             <PropertyRef Name="SkillName" />
             <PropertyRef Name="Status" />
+            <PropertyRef Name="Id_Skill" />
           </Key>
           <Property Name="Id_Profile" Type="int" Nullable="false" />
           <Property Name="SkillName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="Id_Skill" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Follow_Profile">
           <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
@@ -508,7 +514,9 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
           <Parameter Name="SpecializedName" Type="nvarchar" Mode="In" />
           <Parameter Name="Status" Type="bit" Mode="In" />
         </Function>
+        <Function Name="Top3_Profile_Multil_Experience" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Top3_Profile_Multil_Language" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Top3_Profile_Multil_Skill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Top6_Profile_Popular" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="WebCVModelStoreContainer">
           <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
@@ -565,7 +573,9 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
     [View_Profile_Experience].[Ex_Date] AS [Ex_Date], 
     [View_Profile_Experience].[Ex_Descreptiom] AS [Ex_Descreptiom], 
     [View_Profile_Experience].[Id_Profile] AS [Id_Profile], 
-    [View_Profile_Experience].[Status] AS [Status]
+    [View_Profile_Experience].[Status] AS [Status], 
+    [View_Profile_Experience].[Id_Experience] AS [Id_Experience], 
+    [View_Profile_Experience].[Image] AS [Image]
     FROM [dbo].[View_Profile_Experience] AS [View_Profile_Experience]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Profile_Follow" EntityType="Self.View_Profile_Follow" store:Type="Views" store:Schema="dbo">
@@ -606,7 +616,9 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
             <DefiningQuery>SELECT 
     [View_Profile_Skill].[Id_Profile] AS [Id_Profile], 
     [View_Profile_Skill].[SkillName] AS [SkillName], 
-    [View_Profile_Skill].[Status] AS [Status]
+    [View_Profile_Skill].[Status] AS [Status], 
+    [View_Profile_Skill].[Image] AS [Image], 
+    [View_Profile_Skill].[Id_Skill] AS [Id_Skill]
     FROM [dbo].[View_Profile_Skill] AS [View_Profile_Skill]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Follow_Profile" Association="Self.FK_Follow_Profile">
@@ -662,7 +674,8 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebCVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -708,7 +721,7 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
           <Key>
             <PropertyRef Name="Id_Profile" />
           </Key>
-          <Property Name="Id_Profile" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Profile" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Adress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
@@ -851,10 +864,10 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
             <PropertyRef Name="Expr4" />
             <PropertyRef Name="SpecializedName" />
             <PropertyRef Name="Expr5" />
-            <PropertyRef Name="Email" />
-            <PropertyRef Name="Expr6" />
             <PropertyRef Name="EducationName" />
             <PropertyRef Name="Expr7" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Expr6" />
           </Key>
           <Property Name="Id_Profile" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -878,25 +891,28 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
           <Property Name="Expr4" Type="Boolean" Nullable="false" />
           <Property Name="SpecializedName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Expr5" Type="Boolean" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Expr6" Type="Boolean" Nullable="false" />
           <Property Name="EducationName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Expr7" Type="Boolean" Nullable="false" />
           <Property Name="Ex_Descreptiom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ex_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Pr_Descreption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Expr6" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="View_Profile_Experience">
           <Key>
             <PropertyRef Name="ExperienceName" />
             <PropertyRef Name="Id_Profile" />
             <PropertyRef Name="Status" />
+            <PropertyRef Name="Id_Experience" />
           </Key>
           <Property Name="ExperienceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ex_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Ex_Descreptiom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Id_Profile" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Id_Experience" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="View_Profile_Follow">
           <Key>
@@ -954,10 +970,13 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
             <PropertyRef Name="Id_Profile" />
             <PropertyRef Name="SkillName" />
             <PropertyRef Name="Status" />
+            <PropertyRef Name="Id_Skill" />
           </Key>
           <Property Name="Id_Profile" Type="Int32" Nullable="false" />
           <Property Name="SkillName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Skill" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Profile_Education">
           <End Role="Education" Type="Self.Education" Multiplicity="0..1" />
@@ -1256,7 +1275,9 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
             <Parameter Name="SpecializedName" Mode="In" Type="String" />
             <Parameter Name="Status" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="Top3_Profile_Multil_Experience" ReturnType="Collection(WebCVModel.Top3_Profile_Multil_Experience_Result)" />
           <FunctionImport Name="Top3_Profile_Multil_Language" ReturnType="Collection(WebCVModel.Top3_Profile_Multil_Language_Result)" />
+          <FunctionImport Name="Top3_Profile_Multil_Skill" ReturnType="Collection(WebCVModel.Top3_Profile_Multil_Skill_Result)" />
           <FunctionImport Name="Top6_Profile_Popular" ReturnType="Collection(WebCVModel.Top6_Profile_Popular_Result)" />
         </EntityContainer>
         <ComplexType Name="Count_Follow_Result">
@@ -1285,8 +1306,18 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="Top3_Profile_Multil_Experience_Result">
+          <Property Type="Int32" Name="count_experience" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" />
+          <Property Type="Int32" Name="Id_Profile" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="Top3_Profile_Multil_Language_Result">
           <Property Type="Int32" Name="count_language" Nullable="true" />
+          <Property Type="String" Name="Image" Nullable="true" />
+          <Property Type="Int32" Name="Id_Profile" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Top3_Profile_Multil_Skill_Result">
+          <Property Type="Int32" Name="count_skill" Nullable="true" />
           <Property Type="String" Name="Image" Nullable="true" />
           <Property Type="Int32" Name="Id_Profile" Nullable="false" />
         </ComplexType>
@@ -1485,13 +1516,13 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
                 <ScalarProperty Name="Expr4" ColumnName="Expr4" />
                 <ScalarProperty Name="SpecializedName" ColumnName="SpecializedName" />
                 <ScalarProperty Name="Expr5" ColumnName="Expr5" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Expr6" ColumnName="Expr6" />
                 <ScalarProperty Name="EducationName" ColumnName="EducationName" />
                 <ScalarProperty Name="Expr7" ColumnName="Expr7" />
                 <ScalarProperty Name="Ex_Descreptiom" ColumnName="Ex_Descreptiom" />
                 <ScalarProperty Name="Ex_Date" ColumnName="Ex_Date" />
                 <ScalarProperty Name="Pr_Descreption" ColumnName="Pr_Descreption" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Expr6" ColumnName="Expr6" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1503,6 +1534,8 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
                 <ScalarProperty Name="Ex_Descreptiom" ColumnName="Ex_Descreptiom" />
                 <ScalarProperty Name="Id_Profile" ColumnName="Id_Profile" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id_Experience" ColumnName="Id_Experience" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1552,6 +1585,8 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
                 <ScalarProperty Name="Id_Profile" ColumnName="Id_Profile" />
                 <ScalarProperty Name="SkillName" ColumnName="SkillName" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id_Skill" ColumnName="Id_Skill" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1610,10 +1645,28 @@ warning 6002: The table/view 'WebCV.dbo.View_Profile_Skill' does not have a prim
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="WebCVModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="WebCVModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="Specialized_Insert" FunctionName="WebCVModel.Store.Specialized_Insert" />
+          <FunctionImportMapping FunctionImportName="Top3_Profile_Multil_Experience" FunctionName="WebCVModel.Store.Top3_Profile_Multil_Experience">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WebCVModel.Top3_Profile_Multil_Experience_Result">
+                <ScalarProperty Name="count_experience" ColumnName="count_experience" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id_Profile" ColumnName="Id_Profile" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Top3_Profile_Multil_Language" FunctionName="WebCVModel.Store.Top3_Profile_Multil_Language">
             <ResultMapping>
               <ComplexTypeMapping TypeName="WebCVModel.Top3_Profile_Multil_Language_Result">
                 <ScalarProperty Name="count_language" ColumnName="count_language" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id_Profile" ColumnName="Id_Profile" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Top3_Profile_Multil_Skill" FunctionName="WebCVModel.Store.Top3_Profile_Multil_Skill">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WebCVModel.Top3_Profile_Multil_Skill_Result">
+                <ScalarProperty Name="count_skill" ColumnName="count_skill" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Id_Profile" ColumnName="Id_Profile" />
               </ComplexTypeMapping>

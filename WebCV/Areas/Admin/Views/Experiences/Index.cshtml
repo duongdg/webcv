@@ -46,7 +46,7 @@
                             <td>
                                @(item.Status ? "Actived" : "Block")
                             </td>
-                            <td>
+                            <td style="display:flex;">
                                 <a class="btn btn-primary btn-sm" href="@Url.Action("Edit",new {@id=item.Id_Experience})">Update</a>
                                 <div class="div-a-color">
                                     @Ajax.ActionLink("Delete", "Delete", new { @id = item.Id_Experience }, new AjaxOptions

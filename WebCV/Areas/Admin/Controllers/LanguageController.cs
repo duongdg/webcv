@@ -8,7 +8,7 @@ using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
-    public class LanguageController : Controller
+    public class LanguageController : BaseController
     {
         // GET: Admin/Language
         public ActionResult Index()
@@ -46,7 +46,10 @@ namespace WebCV.Areas.Admin.Controllers
                     var model = new LanguageModel();
                     int res = model.Create(collection.LanguageName, collection.Status);
                     if (res > 0)
+                    {
+                        SetAlert("Thêm mới thành công", "success");
                         return RedirectToAction("Index");
+                    }
                     else
                     {
                         ModelState.AddModelError("", "Thêm mới không thành công.");

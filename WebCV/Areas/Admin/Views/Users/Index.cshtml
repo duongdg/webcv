@@ -6,26 +6,19 @@
 }
 
 <div class="card mb-3">
-    <div class="card-header">
-        <i class="fa fa-table"></i> Users
-        <button type="button" class="btn btn-info btn_Add">Add</button>
-    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>
-                            FullName
+                            Email
                         </th>
                         <th>
                             RoleName
                         </th>
                         <th>
                             PassWord
-                        </th>
-                        <th>
-                            Email
                         </th>
                         <th>
                             Status
@@ -38,7 +31,7 @@
                     {
                         <tr>
                             <td>
-                                item.Profile.FullName
+                                @item.Email
                             </td>
                             <td>
                                 @item.Role.RoleName
@@ -47,14 +40,18 @@
                                 @item.PassWord
                             </td>
                             <td>
-                                @item.Email
-                            </td>
-                            <td>
                                 @(item.Status ? "Actived" : "Block")
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">Update</button>
-                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            <td style="display:flex;">
+                                <a class="btn btn-primary btn-sm" href="@Url.Action("Edit",new {@id=item.Id_User})">Update</a>
+                                <div class="div-a-color">
+                                    @Ajax.ActionLink("Delete", "Delete", new { @id = item.Id_User }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xóa bản ghi này không?",
+                                   OnComplete = "$('#row_" + @item.Id_User + "').remove(); window.location.reload()",
+                                   HttpMethod = "Delete"
+                               })
+                                </div>
                             </td>
                         </tr>
                     }

@@ -39,7 +39,12 @@ namespace WebCV.Areas.Admin.Code
                 else
                 {
                     if (result.PassWord == password)
-                        return 1;
+                    {
+                        if (result.Id_Role == 1)
+                            return 1;
+                        else
+                            return 2;
+                    }
                     else
                         return -2;
                 }

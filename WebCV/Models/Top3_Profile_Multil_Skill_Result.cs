@@ -10,16 +10,11 @@
 namespace WebCV.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class View_Profile_Experience
+    public partial class Top3_Profile_Multil_Skill_Result
     {
-        public string ExperienceName { get; set; }
-        public string Ex_Date { get; set; }
-        public string Ex_Descreptiom { get; set; }
-        public int Id_Profile { get; set; }
-        public bool Status { get; set; }
-        public int Id_Experience { get; set; }
+        public Nullable<int> count_skill { get; set; }
         public string Image { get; set; }
+        public int Id_Profile { get; set; }
     }
 }
