@@ -36,12 +36,12 @@ namespace WebCV.Models
         public bool Expr4 { get; set; }
         public string SpecializedName { get; set; }
         public bool Expr5 { get; set; }
-        public string Email { get; set; }
-        public bool Expr6 { get; set; }
         public string EducationName { get; set; }
         public bool Expr7 { get; set; }
         public string Ex_Descreptiom { get; set; }
         public string Ex_Date { get; set; }
         public string Pr_Descreption { get; set; }
+        public string Email { get; set; }
+        public bool Expr6 { get; set; }
     }
 }

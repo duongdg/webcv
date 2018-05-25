@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="da6382c6627e4a83a10e6ce4b1843c88" Name="Diagram1">
+      <Diagram DiagramId="ef7cd4dfa79d497a8317f0da095a3a19" Name="Diagram1">
         <EntityTypeShape EntityType="WebCVModel.Education" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.Experience" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.Follow" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
@@ -18,10 +18,9 @@
         <EntityTypeShape EntityType="WebCVModel.Role" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.Skill" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.Specialized" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCVModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.User" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.View_Profile" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCVModel.View_Profile_Experience" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCVModel.View_Profile_Experience" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.View_Profile_Follow" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.View_Profile_Language" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.View_Profile_Project" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
