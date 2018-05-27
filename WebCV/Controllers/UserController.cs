@@ -43,7 +43,8 @@ namespace WebCV.Controllers
                     if(result>0)
                     {
                         //ViewBag.Success = "Thanh cong";
-                        return RedirectToAction("Create", "Admin/Profiles");
+                        //return RedirectToAction("Create", "Admin/Profiles");
+                        Response.Redirect("http://localhost:61528/AddInformationProfile/Create");
                     }
                     else
                     {
