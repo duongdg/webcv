@@ -49,10 +49,40 @@ namespace WebCV.Controllers
         }
         public PartialViewResult InvolvePartial(int? page)
         {
-            List<Profile> profile_view = db.Profiles.Where(x=>x.Status==true && x.Is_View==true).ToList();
+            List<Profile> profile_view = db.Profiles.Where(x => x.Status == true && x.Is_View == true).ToList();
             int pageNumber = (page ?? 1);
             int pageSize = 4;
-            return PartialView(profile_view.OrderBy(n=>n.FullName).ToPagedList(pageNumber, pageSize));
+            var session = (AdminLogin)Session[CommonConstant.ADMIN_SESION];
+            if (session != null)
+            {
+                long id_followed = session.Id_Admin;
+                string id_follower = Request.Form["id_profile"];
+                if (id_follower != null)
+                {
+                    if (CheckFollow((int)id_followed, int.Parse(id_follower)))
+                    {
+                        ViewBag.Check = "1";
+                        //var id = db.Follows.Select(x=>x.Id_Follow).Where(x=>x.Followed_id== (int)id_followed && x.Follower_id== int.Parse(id_follower));
+                        //db.Follows.Remove(id);
+                        //db.SaveChanges();
+                    }
+                    else
+                    {
+                        ViewBag.Check = "0";
+                        Follow follow = new Follow();
+                        follow.Followed_id = (int)id_followed;
+                        follow.Follower_id = int.Parse(id_follower);
+                        db.Follows.Add(follow);
+                        db.SaveChanges();
+
+                    }
+                }
+            } 
+            return PartialView(profile_view.OrderBy(n => n.FullName).ToPagedList(pageNumber, pageSize));
+        }
+        public bool CheckFollow(int id_followed, int id_follower)
+        {
+            return db.Follows.Count(x => x.Followed_id == id_followed && x.Follower_id== id_follower) > 0;
         }
         public ActionResult About()
         {
@@ -60,10 +90,10 @@ namespace WebCV.Controllers
         }
         public ActionResult ResponProfile(int Id_Profile)
         {
-            Profile profile_view = db.Profiles.SingleOrDefault(n => n.Id_Profile == Id_Profile && n.Status==true && n.Is_View==true);
+            Profile profile_view = db.Profiles.SingleOrDefault(n => n.Id_Profile == Id_Profile && n.Status == true && n.Is_View == true);
             return PartialView(profile_view);
         }
-        
+
         public JsonResult ListName(string q)
         {
             var data = new ProfileDAO().ListName(q);

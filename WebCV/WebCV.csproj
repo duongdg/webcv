@@ -152,6 +152,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Home\css\animate.min.css" />
     <Content Include="Content\Home\css\custom02.css" />
+    <Content Include="Content\Home\css\follow.css" />
     <Content Include="Content\Home\css\jquery-ui.css" />
     <Content Include="Content\Home\css\style01.css" />
     <Content Include="Content\Home\images\2.jpg" />
@@ -196,6 +197,7 @@
     <Content Include="Content\Home\images\t4.jpg" />
     <Content Include="Content\Home\js\bootstrap.min.js" />
     <Content Include="Content\Home\js\classie.js" />
+    <Content Include="Content\Home\js\follow.js" />
     <Content Include="Content\Home\js\jquery-1.11.1.min.js" />
     <Content Include="Content\Home\js\jquery.chocolat.js" />
     <Content Include="Content\Home\js\modernizr.custom.js" />
@@ -213,6 +215,7 @@
     <Content Include="Content\Profile\css\style01.css" />
     <Content Include="Content\Profile\images\about.jpg" />
     <Content Include="Content\Profile\images\arrow.png" />
+    <Content Include="Content\Profile\images\bg-dow.jpg" />
     <Content Include="Content\Profile\images\bg.jpg" />
     <Content Include="Content\Profile\images\close.png" />
     <Content Include="Content\Profile\images\dott.png" />
@@ -344,7 +347,6 @@
     <Content Include="Areas\Admin\Views\Shared\_LeftMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Language\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Test.cshtml" />
     <Content Include="Areas\Admin\Views\Education\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Experiences\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Experiences\Edit.cshtml" />
@@ -402,6 +404,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\search.js" />
+    <Content Include="tttt.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -437,6 +440,7 @@
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\ProfileDAO.cs" />
+    <Compile Include="Controllers\AddInformationProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -580,6 +584,7 @@
     <Content Include="Views\Home\TopCVLanguage.cshtml" />
     <Content Include="Views\Home\TopCVPExperience.cshtml" />
     <Content Include="Views\Home\TopCVSkill.cshtml" />
+    <Content Include="Views\AddInformationProfile\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

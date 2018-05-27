@@ -10,7 +10,7 @@ using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
-    public class EducationController : Controller
+    public class EducationController : BaseController
     {
         WebCVEntities db = new WebCVEntities();
 
@@ -52,7 +52,12 @@ namespace WebCV.Areas.Admin.Controllers
             {
                 db.Educations.Add(Education);
                 db.SaveChanges();
+                SetAlert("Thêm mới thành công", "success");
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Thêm mới không thành công.");
             }
 
             return View(Education);
@@ -84,7 +89,12 @@ namespace WebCV.Areas.Admin.Controllers
             {
                 db.Entry(Education).State = EntityState.Modified;
                 db.SaveChanges();
+                SetAlert("Sửa thành công", "success");
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Sửa thất bại.");
             }
             return View(Education);
         }

@@ -52,7 +52,8 @@ namespace WebCV.Areas.Admin.Controllers
                     adminSession.Email = admin.Email;
                     adminSession.Id_Admin = admin.Id_User;
                     Session.Add(CommonConstant.ADMIN_SESION, adminSession);
-                    Response.Redirect("http://localhost:61528");
+                    Response.Redirect("http://localhost:61528/AddInformationProfile/Create");
+                    //return RedirectToAction("Create", "Profiles");
                 }
                 else
                 {

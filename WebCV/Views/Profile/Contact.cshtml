@@ -1,7 +1,7 @@
 ﻿@model List<WebCV.Models.Profile>
 <section class="comment-w3l" id="contact">
     <div class="container">
-        <h3 class="text-center">Contact Me</h3>
+        <h3 class="text-center">Liên hệ với tôi</h3>
         <div class="col-lg-6 col-md-6 col-sm-6 comment-agile1" data-aos="flip-left">
             <form action="#" method="post">
                 <div class="control-group form-group">
@@ -17,8 +17,7 @@
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="text" class="form-control" id="phone" placeholder="Phone Number" required="">
-                        <p class="help-block"></p>
+                        <input type="email" class="form-control" id="email" placeholder="Phone Number" required="" />
                     </div>
                 </div>
                 <div class="control-group form-group">
@@ -31,14 +30,16 @@
             </form>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 comment-agile2" data-aos="flip-right">
-            <h4>Contact me for more details</h4>
-            <p class="comment-w3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed insapien urna. Aenean Sed insapien urna in diam lacus. Nullam nisl urna, in consequat eget enim vitae, faucibus malesuada consectetur adipisc ingelit in consequat enim vitae</p>
-           @foreach (var item in Model)
-           {
+            @foreach (var item in Model)
+            {
+                <h4>Một số thông tin về tôi</h4>
+                <p class="comment-w3">Họ và tên: @item.FullName - Sở thích: @item.Hobbies <br />
+                Mô tả bản thân: @item.Descreption
+            </p>
                 <h5><span class="fa fa-phone"></span> @item.Phone</h5>
                 <h5><span class="fa fa-envelope"></span> <a href="mailto:name@example.com"> mail@example.com</a></h5>
                 <h5><span class="fa fa-map-marker"></span> @item.Adress</h5>
-           }
+            }
         </div>
         <div class="clearfix"></div>
     </div>

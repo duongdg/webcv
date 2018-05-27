@@ -10,6 +10,7 @@ namespace WebCV.Areas.Admin.Controllers
 {
     public class LanguageController : BaseController
     {
+        WebCVEntities db = new WebCVEntities();
         // GET: Admin/Language
         public ActionResult Index()
         {
@@ -41,18 +42,23 @@ namespace WebCV.Areas.Admin.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-
-
-                    var model = new LanguageModel();
-                    int res = model.Create(collection.LanguageName, collection.Status);
-                    if (res > 0)
+                    if (CheckName(collection.LanguageName))
                     {
-                        SetAlert("Thêm mới thành công", "success");
-                        return RedirectToAction("Index");
+                        SetAlert("Tên trùng, vui lòng nhập tên khác", "error");
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Thêm mới không thành công.");
+                        var model = new LanguageModel();
+                        int res = model.Create(collection.LanguageName, collection.Status);
+                        if (res > 0)
+                        {
+                            SetAlert("Thêm mới thành công", "success");
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Thêm mới không thành công.");
+                        }
                     }
                 }
                 return View(collection);
@@ -77,15 +83,23 @@ namespace WebCV.Areas.Admin.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-
-
-                    var model = new LanguageModel();
-                    var res = model.Update(collection);
-                    if (res)
-                        return RedirectToAction("Index");
+                    if (CheckName(collection.LanguageName))
+                    {
+                        SetAlert("Tên trùng, vui lòng nhập tên khác", "error");
+                    }
                     else
                     {
-                        ModelState.AddModelError("", "Update mới không thành công.");
+                        var model = new LanguageModel();
+                        var res = model.Update(collection);
+                        if (res)
+                        {
+                            SetAlert("Sửa thành công", "success");
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Update mới không thành công.");
+                        }
                     }
                 }
                 return View(collection);
@@ -102,6 +116,10 @@ namespace WebCV.Areas.Admin.Controllers
         {
             new LanguageModel().Delete(id);
             return RedirectToAction("Index");
+        }
+        public bool CheckName(string name)
+        {
+            return db.Languages.Count(x => x.LanguageName == name) > 0;
         }
     }
 }

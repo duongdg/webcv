@@ -5,25 +5,24 @@
         <div class="modal-spa">
             <div class="skills">
                 <div class="col-md-6 bar-grids bargrids-left">
-                    <h4> Technical Skills </h4>
+                    <h4> Các kỹ năng theo tỷ lệ </h4>
                     <p>
-                        Vestibulum facilisis nisi sed libero consectetur, nec eleifend augue feugiat.
-                        Vivamus dictum quam id diam dapibus, a vehicula orci luctus.
+                        Sự phân bố tỷ lệ cho từng kỹ năng
                     </p>
                     @foreach (var item in Model)
                     {
                         <h6>@item.SkillName  <span> 80% </span></h6>
-                    }
+                   
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped active" style="width: 80%">
                         </div>
                     </div>
+                    }
                 </div>
                 <div class="col-md-6 bar-grids  w3-agile">
-                    <h4> My Hobbies </h4>
+                    <h4> Kỹ năng mềm </h4>
                     <p>
-                        Vestibulum facilisis nisi sed libero consectetur, nec eleifend augue feugiat.
-                        Vivamus dictum quam id diam dapibus, a vehicula orci luctus.
+                        Một số kỹ năng mềm của bản thân do tự mình đánh giá.
                     </p>
                     @foreach (var item in Model)
                     {

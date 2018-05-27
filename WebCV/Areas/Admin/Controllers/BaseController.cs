@@ -38,5 +38,6 @@ namespace WebCV.Areas.Admin.Controllers
                 TempData["AlertType"] = "alert-danger";
             }
         }
+
     }
 }

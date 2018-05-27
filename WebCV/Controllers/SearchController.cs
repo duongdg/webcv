@@ -50,5 +50,9 @@ namespace WebCV.Controllers
             ViewBag.ThongBao = "Đã tìm thấy " + lstCV.Count() + " kết quả";
             return View(lstCV.OrderBy(n => n.FullName).ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult FolloW()
+        {
+            return View();
+        }
     }
 }

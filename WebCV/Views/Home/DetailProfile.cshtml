@@ -7,20 +7,20 @@
         </div>
 
         <h3><a href="">@item.FullName</a></h3>
-        <h6>BY <a href="">@item.Adress - @item.Phone </a>JULY 10 2016.</h6>
-        <p>@item.Descreption</p>
+        <h6>Thông tin <a href="">@item.Adress - @item.Phone </a></h6>
+        <p><b>Mục tiêu nghề nghiệp: </b>@item.TargetJob</p>
+        <p><b>Mô tả: </b>@item.Descreption</p>
         <div class="bht1">
-            <a href="@Url.Action("ResponProfile",new {@Id_Profile=item.Id_Profile})">Continue Reading</a>
+            <a href="@Url.Action("ResponProfile",new {@Id_Profile=item.Id_Profile})">Chi tiết</a>
         </div>
-        <div class="soci">
+        @*<div class="soci">
             <ul>
-                @* <li class=""><a href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/heart01.png" /></a></li>*@
                 <li>
                     <div class="fb-like" data-href="http://realmadrid.com.vn/index.aspx?tabid=19&article=1394" data-send="true" data-width="500" data-show-faces="true"></div>
                 </li>
                 <li class="hvr-rectangle-out"><a class="" href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/messeage.jpg" /></a></li>
             </ul>
-        </div>
+        </div>*@
     }
     <div class="clearfix"></div>
 </div>
