@@ -35,24 +35,22 @@
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                     <nav class="link-effect-7" id="link-effect-7">
                         <ul class="nav navbar-nav">
-                            <li class="active act"><a href="http://localhost:61528/Home/Home">Trang chủ</a></li>
-                            <li><a href="http://localhost:61528/User/Register">Register</a></li>
-                            @*<li><a href="http://localhost:61528/Profile/Profile">Profile</a></li>*@
+                            <li class="active act">@Html.ActionLink("Trang chủ", "Home", "Home")</li>
+                            <li class="active act">@Html.ActionLink("Register", "Register", "User")</li>
                         </ul>
                     </nav>
                 </div>
-                <!-- /.navbar-collapse -->
             </nav>
         </div>
         <div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
-            <ul>
+            @*<ul>
                 <li><a href="#"> </a></li>
                 <li><a href="#" class="pin"> </a></li>
                 <li><a href="#" class="in"> </a></li>
                 <li><a href="#" class="be"> </a></li>
 
                 <li><a href="#" class="vimeo"> </a></li>
-            </ul>
+            </ul>*@
         </div>
         <div class="clearfix"> </div>
     </div>
