@@ -29,5 +29,16 @@ namespace WebCV.Common
 
             return strBuilder.ToString();
         }
+        //public static string Encode(string input)
+        //{
+        //    byte[] data;
+        //    data = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
+        //    StringBuilder sBuilder = new StringBuilder();
+        //    for (int i = 0; i < data.Length; i++)
+        //    {
+        //        sBuilder.Append(data[i].ToString("x2"));
+        //    }
+        //    return sBuilder.ToString();
+        //}
     }
 }

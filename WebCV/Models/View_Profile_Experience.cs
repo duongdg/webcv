@@ -19,5 +19,7 @@ namespace WebCV.Models
         public string Ex_Descreptiom { get; set; }
         public int Id_Profile { get; set; }
         public bool Status { get; set; }
+        public int Id_Experience { get; set; }
+        public string Image { get; set; }
     }
 }

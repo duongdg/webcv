@@ -11,7 +11,7 @@ using WebCV.Models;
 
 namespace WebCV.Areas.Admin.Controllers
 {
-    public class SpecializedsController : Controller
+    public class SpecializedsController : BaseController
     {
         WebCVEntities db = new WebCVEntities();
 

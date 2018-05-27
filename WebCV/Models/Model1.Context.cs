@@ -174,9 +174,19 @@ namespace WebCV.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Specialized_Insert", specializedNameParameter, statusParameter);
         }
     
+        public virtual ObjectResult<Top3_Profile_Multil_Experience_Result> Top3_Profile_Multil_Experience()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top3_Profile_Multil_Experience_Result>("Top3_Profile_Multil_Experience");
+        }
+    
         public virtual ObjectResult<Top3_Profile_Multil_Language_Result> Top3_Profile_Multil_Language()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top3_Profile_Multil_Language_Result>("Top3_Profile_Multil_Language");
+        }
+    
+        public virtual ObjectResult<Top3_Profile_Multil_Skill_Result> Top3_Profile_Multil_Skill()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Top3_Profile_Multil_Skill_Result>("Top3_Profile_Multil_Skill");
         }
     
         public virtual ObjectResult<Top6_Profile_Popular_Result> Top6_Profile_Popular()

@@ -17,5 +17,7 @@ namespace WebCV.Models
         public int Id_Profile { get; set; }
         public string SkillName { get; set; }
         public bool Status { get; set; }
+        public string Image { get; set; }
+        public int Id_Skill { get; set; }
     }
 }

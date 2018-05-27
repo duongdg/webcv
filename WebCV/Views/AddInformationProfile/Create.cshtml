@@ -1,0 +1,128 @@
+﻿@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4 style="text-align:center;">Create Profile</h4>
+        <hr />
+        <div style="margin-left:10%;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">FullName</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="FullName" type="text" name="FullName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Phone</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="Phone" type="text" name="Phone" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Adress</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="Adress" type="text" name="Adress" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Date</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="Date" type="date" name="Date" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Image</b>
+                <div class="col-md-8">
+                    <input type="file" name="file" id="file" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Sex</b>
+                <div class="col-md-8">
+                    <select class="form-control" id="Sex" name="Sex">
+                        <option value="0">Other</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Hobbies</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="Hobbies" type="text" name="Hobbies" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Descreption</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="Descreption" type="text" name="Descreption" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">TargetJob</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="TargetJob" type="text" name="TargetJob" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Education</b>
+                <div class="col-md-8">
+                    @Html.DropDownList("Id_Education", null, htmlAttributes: new { @class = "form-control", @id = "experience" })
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Specialized</b>
+                <div class="col-md-8">
+                    @Html.DropDownList("id_Specialized", null, htmlAttributes: new { @class = "form-control", @id = "specialized" })
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Language</b>
+                <div class="col-md-8">
+                    @Html.DropDownList("Id_Language", null, htmlAttributes: new { @class = "form-control", @id = "language" })
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Project Name</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="ProjectName" type="text" name="ProjectName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Project Descreption</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="ProjectDescreption" type="text" name="ProjectDescreption" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Skill Name</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="SkillName" type="text" name="SkillName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Experience Name</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="ExperienceName" type="text" name="ExperienceName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Date Experience</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="DateExperience" type="text" name="DateExperience" />
+                </div>
+            </div>
+            <div class="form-group">
+                <b class="control-label col-md-2" style="text-align:left;">Experience Descreption</b>
+                <div class="col-md-8">
+                    <input class="form-control" id="ExperienceDescreption" type="text" name="ExperienceDescreption" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary btn-sm" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

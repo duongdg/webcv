@@ -12,10 +12,8 @@
                         </form>*@
                         @using (Html.BeginForm("Search", "Search", FormMethod.Post))
                         {
-                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Tìm truyện, tác giả..." })
-                            <button class="w3-btn search-bar-button" type="submit">
-                                Search
-                            </button>
+                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @placeholder = "Tìm theo tên" })
+                            <input class="icon-search" type="submit" value="Tìm" />
                         }
                     </div>
                 </div>
@@ -37,8 +35,8 @@
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                     <nav class="link-effect-7" id="link-effect-7">
                         <ul class="nav navbar-nav">
-                            <li class="active act"><a href="http://localhost:61528/Home/Home">Home</a></li>
-                            <li><a href="http://localhost:61528/Home/About">About</a></li>
+                            <li class="active act"><a href="http://localhost:61528/Home/Home">Trang chủ</a></li>
+                            @*<li><a href="http://localhost:61528/Home/About">About</a></li>*@
                             @*<li><a href="http://localhost:61528/Profile/Profile">Profile</a></li>*@
                         </ul>
                     </nav>

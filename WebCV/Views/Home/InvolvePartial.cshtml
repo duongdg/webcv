@@ -1,34 +1,49 @@
-﻿@model List<WebCV.Models.Profile>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<WebCV.Models.Profile>
+
 <div class="clearfix"></div>
 <div class="w3ls">
     @foreach (var item in Model)
     {
-        <div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-            <div class="tc-ch">
-                <div class="tch-img">
-                    <a href="">
-                        <img src="@item.Image" class="img-responsive img-home-profile" alt="">
-                    </a>
+        using (Html.BeginForm())
+        {
+            <input class="form-control" id="id_profile" type="hidden" name="id_profile" value="@item.Id_Profile" />
+            <div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                <div class="tc-ch">
+                    <div class="tch-img">
+                        <a href="">
+                            <img src="~/Content/Home/images/@item.Image" class="img-responsive img-home-profile" alt="">
+                        </a>
+                    </div>
+                    <h3><a href="">@item.FullName</a></h3>
+                    <h6>Thông tin <a href="">@item.Adress - @item.Phone </a></h6>
+                    <p><b>Mục tiêu nghề nghiệp: </b>@item.TargetJob</p>
+                    <div class="bht1">
+                        <a href="@Url.Action("ResponProfile", new { @Id_Profile = item.Id_Profile })">Chi tiết</a>
+                    </div>
+                    <div class="soci">
+                        <ul>
+                            <li>
+                                <input type="submit" value="" class="btn btn-primary btn-sm" style="width:35px;background: url('/Content/Home/images/heart01.png'); background-size: 33px 30px;" />
+                            </li>
+                        </ul>
+                            @*<a id="btna" href="#" class="button1 follow" id="btna"><img width="10px" src="~/Content/Home/images/heart01.png" /> <span>Follow</span></a>*@
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-
-                <h3><a href="">@item.FullName</a></h3>
-                <h6>BY <a href="">ADAM ROSE </a>JULY 10 2016.</h6>
-                <p>@item.Descreption</p>
-                <div class="bht1">
-                    <a href="@Url.Action("ResponProfile",new {@Id_Profile=item.Id_Profile})">Read More</a>
-                </div>
-                <div class="soci">
-                    <ul>
-                        <li class=""><a href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/heart01.png" /></a></li>
-                        <li class="hvr-rectangle-out"><a class="" href="#"><img style="width:30px;height:30px;" src="~/Content/Home/images/messeage.jpg" /></a></li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
             </div>
-        </div>
+        }
     }
     <div class="clearfix"></div>
+    <!-- PAGES -->
+    <div class="w3-center pagination" style="margin-left:25%;">
+        <ul class="w3-pagination paging">
+            @Html.PagedListPager(Model, page => Url.Action("Home", "Home", new { page = page }))
+        </ul>
+    </div>
 </div>
+
 
 
 

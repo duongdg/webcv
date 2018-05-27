@@ -57,12 +57,15 @@ namespace WebCV.Controllers
             var contact = db.Profiles.Where(x => x.Id_Profile == Id_Profile).ToList();
             return PartialView(contact);
         }
-        public void Send()
+        public JsonResult Send(string name, string phgone, string email, string mesage)
         {
             string content;
             content = "Email";
             var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
             new MailHelper().SendMail(toEmail, "TT lien he moi", content);
+            return Json(new {
+
+            });
         }
     }
 }

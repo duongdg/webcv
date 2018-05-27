@@ -2,11 +2,11 @@
 @model List<WebCV.Models.Profile>
 <div class="about" id="about">
     <div class="container">
-        <h3 class="text-center">About Me</h3>
+        <h3 class="text-center">Về tôi</h3>
         @foreach (var item in Model)
         {
-            <div class="col-md-5 about_left" style="background: url(@item.Image) no-repeat 0px 0px;">
-                <ul class="address">
+            <div class="col-md-5 about_left" style="background: url('/Content/Home/images/@item.Image') no-repeat 0px 0px; background-size: 450px 500px;">
+                @*<ul class="address" style="opacity:unset;">
                     <li>
                         <ul class="agileits-address-text ">
                             <li><b>Name</b></li>
@@ -49,8 +49,8 @@
                             <li><a href="#">www.mywebsite.com</a></li>
                         </ul>
                     </li>
-                </ul>
-                <div class="w3-socials about-social">
+                </ul>*@
+                @*<div class="w3-socials about-social">
                     <ul>
                         <li>
                             <a href="#"><span class="fa fa-facebook"></span></a>
@@ -65,21 +65,25 @@
                             <a href="#"><span class="fa fa-twitter"></span></a>
                         </li>
                     </ul>
-                </div>
+                </div>*@
             </div>
             <div class="col-md-7 about_right">
-                <h3>Hi, I am @item.FullName</h3>
-                <h4>Web designer : +4 years of coding experience</h4>
+                <h3>Xin chào, tôi là @item.FullName</h3>
+                <h4>@item.Adress - @item.Phone</h4>
+                <h5><b>Ngày sinh: </b> @item.DateofBirth</h5>
+                <br />
                 <p>
-                    Descreptiom: @item.Descreption
+                    <b>Mục tiêu nghề nghiệp:</b> @item.TargetJob
+                    <br />
+                    <b>Giới thiệu:</b> @item.Descreption
                 </p>
                 <p>
-                    Hobbies: @item.Hobbies
+                    <b>Sở thích:</b> @item.Hobbies
                 </p>
-                <ul>
+                @*<ul>
                     <li><a href="#contact" class="w3ls_more scroll">Hire Me</a></li>
                     <li><a href="#contact" class="w3l scroll">Contact Me</a></li>
-                </ul>
+                </ul>*@
             </div>
             <div class="clearfix"></div>
         }

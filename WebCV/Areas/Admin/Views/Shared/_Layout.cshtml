@@ -28,6 +28,12 @@
     @RenderPage("_Header.cshtml")
     <div class="content-wrapper">
         <div class="container-fluid">
+            @if (TempData["AlertMessage"] != null)
+            {
+                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                    @TempData["AlertMessage"]
+                </div>
+            }
             @RenderBody()
         </div>
         </div>
@@ -48,7 +54,6 @@
         <script src="~/Assets/Admin/js/sb-admin.min.js"></script>
         <script src="~/Assets/Admin/js/sb-admin-datatables.min.js"></script>
         <script src="~/Assets/Admin/js/sb-admin-charts.min.js"></script>
-
-
+        <script src="~/Assets/Admin/js/set-timeout.js"></script>
 </body>
 </html>

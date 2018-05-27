@@ -1,7 +1,6 @@
 ﻿@model List<WebCV.Models.Profile>
 <div class="w3l-banner">
-    <div class="wthree-dot">
-
+    <div class="wthree-dot" style="background: url('/Content/Profile/images/services.jpg') no-repeat 0px 0px; background-size: 1500px 700px;">
         <!-- nav -->
         <div class="w3layouts-nav-right">
             <div class="fat-nav">
@@ -11,8 +10,8 @@
                         <li><a href="#about" class="scroll">Về tôi</a></li>
                         <li><a href="#services" class="scroll">Mục tiêu nghề nghiệp</a></li>
                         <li><a href="#skills" class="scroll">Kỹ năng</a></li>
-                        <li><a href="#gallery" class="scroll">Dự án</a></li>
-                        <li><a href="#stats" class="scroll">Thống kê</a></li>
+                       @* <li><a href="#gallery" class="scroll">Dự án</a></li>*@
+                        <li><a href="#stats" class="scroll">Dự án</a></li>
                         <li><a href="#experience" class="scroll">Kinh nghiệm làm việc</a></li>
                         <li><a href="#contact" class="scroll">Thông tin bản thân</a></li>
                     </ul>
@@ -33,7 +32,7 @@
                                     <h1>Tôi là <span>@item.FullName</span></h1>
                                     <p>@item.Adress - @item.Phone</p>
                                     <ul>
-                                        <li><a href="#" class="w3ls_more">Thuê tôi</a></li>
+                                        @*<li><a href="#" class="w3ls_more">Thuê tôi</a></li>*@
                                         <li><a href="#contact" class="scroll w3l_contact">Thông tin về tôi</a></li>
                                     </ul>
                                 </div>
@@ -43,7 +42,7 @@
                                     <h1>Mục tiêu <span>@item.TargetJob</span></h1>
                                     <p>@item.Descreption</p>
                                     <ul>
-                                        <li><a href="#" class="w3ls_more">Thuê tôi</a></li>
+                                        @*<li><a href="#" class="w3ls_more">Thuê tôi</a></li>*@
                                         <li><a href="#contact" class="scroll w3l_contact">Thông tin về tôi</a></li>
                                     </ul>
                                 </div>

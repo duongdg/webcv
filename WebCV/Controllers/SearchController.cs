@@ -21,7 +21,7 @@ namespace WebCV.Controllers
             sTuKhoa = f["txtTimKiem"].ToString();
             ViewBag.TuKhoa = sTuKhoa;
             //contains tim kiem giong nhu like
-            List<View_Profile> lstCV = db.View_Profile.Where(n => n.FullName.Contains(sTuKhoa)).Distinct().ToList();
+            List<Profile> lstCV = db.Profiles.Where(n => n.FullName.Contains(sTuKhoa)).ToList();
             //phan trang
             int pageNumber = (page ?? 1);
             int pageSize = 4;
@@ -37,7 +37,7 @@ namespace WebCV.Controllers
         {
             ViewBag.TuKhoa = sTuKhoa;
             //contains tim kiem giong nhu like
-            List<View_Profile> lstCV = db.View_Profile.Where(n => n.FullName.Contains(sTuKhoa)).Distinct().ToList();
+            List<Profile> lstCV = db.Profiles.Where(n => n.FullName.Contains(sTuKhoa)).ToList();
 
             //phan trang
             int pageNumber = (page ?? 1);
@@ -49,6 +49,10 @@ namespace WebCV.Controllers
             }
             ViewBag.ThongBao = "Đã tìm thấy " + lstCV.Count() + " kết quả";
             return View(lstCV.OrderBy(n => n.FullName).ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult FolloW()
+        {
+            return View();
         }
     }
 }

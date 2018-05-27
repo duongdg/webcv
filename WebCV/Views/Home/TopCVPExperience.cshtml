@@ -1,0 +1,12 @@
+﻿@model List<WebCV.Models.Top3_Profile_Multil_Experience_Result>
+<div role="tabpanel" class="tab-pane fade" id="safari" aria-labelledby="safari-tab">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-5 tab-image">
+            <a href="@Url.Action("ResponProfile",new {@Id_Profile=item.Id_Profile})">
+                <img src="~/Content/Home/images/@item.Image" class="img-responsive div-img-home-multil_language" alt="Wanderer">
+            </a>
+        </div>
+    }
+    <div class="clearfix"></div>
+</div>
