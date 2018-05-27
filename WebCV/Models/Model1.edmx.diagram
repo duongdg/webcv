@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ef7cd4dfa79d497a8317f0da095a3a19" Name="Diagram1">
+      <Diagram DiagramId="7e105a38420a4f6abede10fe62306c22" Name="Diagram1">
         <EntityTypeShape EntityType="WebCVModel.Education" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.Experience" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebCVModel.Follow" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
